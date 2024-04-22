@@ -82,7 +82,6 @@ const plansHeaderAnimation = (plansRef) => {
      let plansHeaderCallback = (entries) => {
        entries.forEach((entry) => {
             if(entry.isIntersecting){
-                console.log('gg')
                  setTimeout(() => {
                    heading.querySelector("h1").classList.remove("no-opacity");
                    heading.querySelector("h1").classList.remove("remove");
