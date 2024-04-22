@@ -1,0 +1,30 @@
+.portfolio-hero{
+    width: 100vw;
+    height: 450px;
+    background: #000;
+    background: url('../../assets/portfolio2.png');
+    background-size: cover;
+}
+
+.portfolio-hero .portfolio-hero-main{
+    width: 100vw;
+    height: 450px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: linear-gradient(180deg, rgb(0, 0, 0, .97) 10%, rgb(0, 0, 0, .6));
+}
+
+.container.portfolio nav{
+    position: absolute;
+}
+
+.container.portfolio .portfolio-hero-main h1{
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    font-size: 50px;
+    transform: translate(-50%);
+    text-align: center;
+    color: #fff;
+}

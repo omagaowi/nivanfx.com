@@ -1,0 +1,130 @@
+.newsletter{
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    pointer-events: all;
+    justify-content: center;
+}
+
+.form-area{
+    width: 100vw;
+    height: 300px;
+    background: rgb(253, 253, 240, .4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.form-area h2{
+    font-weight: lighter;
+    font-size: 25px;
+    color: #393939;
+    font-weight: 300;
+    width: fit-content;
+}
+
+.form-area .detail{
+    max-width: 570px;
+    width: 90vw;
+    font-size: 15px;
+    line-height: 25px;
+    color: #7b7b7b;
+    font-weight: 100;
+    margin-top: 12px;
+    text-align: center;
+}
+
+.email-input{
+    max-width: 420px;
+    height: 35px;
+    width: 90vw;
+    margin-top: 25px;
+    padding: 0px;
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 1px solid #474747;
+}
+
+.email-input input{
+    border: none;
+    outline: none;
+    background: none;
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+}
+
+.newsletter .suscribe-btn{
+    max-width: 300px;
+    width: 90%;
+    height: 37px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    align-items: center;
+    background: #480083;
+    margin-top: 35px;
+    transition: all .3s;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.newsletter .suscribe-btn:hover{
+    background: #8B00FF;
+}
+
+.suscribe-btn p{
+    font-weight: lighter;
+}
+
+.suscribe-btn img{
+    display: none;
+}
+
+.newsletter.loading .form-area{
+    pointer-events: none;
+    opacity: .8;
+}
+
+.newsletter.loading .suscribe-btn p{
+    display: none;
+}
+
+.newsletter.loading .suscribe-btn img{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.newsletter-msg{
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 30px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease;
+    transform: translateY(-31px);
+}
+
+.newsletter-msg.success{
+    background: #01de01;
+    transform: translateY(0px);
+}
+
+.newsletter-msg.error{
+    background: red;
+    transform: translateY(0px);
+}

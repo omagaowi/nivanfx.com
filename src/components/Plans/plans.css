@@ -1,0 +1,90 @@
+.plans{
+    margin-top: 110px;
+    width: 100vw;
+    height: auto;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    padding-bottom: 20px;
+}
+
+.plan{
+    width: 380px;
+    min-height: 420px;
+    height: fit-content;
+    background: #fff;
+    /* margin-left: 100px; */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15),
+    0 3px 6px rgba(0, 0, 0, 0.15);
+    display: flex;
+    margin-bottom: 20px;
+    transition: all .4s ease;
+    flex-direction: column;
+    align-items: center;
+}
+
+.plan h2{
+   margin-top: 70px;
+   color: #585858;
+   font-size: 28px;
+}
+
+.plan .price{
+    display: flex;
+    margin-top: 30px;
+    font-size: 34px;
+    color: #930fff;
+}
+
+.plan .digit{
+    color: #930fff;
+}
+
+.plan .features{
+    width: 90%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.plan .feature{
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0px;
+}
+
+.plan .feature-text{
+    font-size: 14px;
+    width: 97%;
+    color: #6f6f6f;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.plan .feature svg{
+    width: 27px;
+    height: 27px;
+    flex-shrink: 0;
+    margin-right: 10px;
+    color: #930fff;
+}
+
+.plan button{
+    height: 33px;
+    padding: 0px 12px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    background: #930fff;
+}
+
+/* remove classess */
+
+.plans .plan.remove{
+    transform: translateY(-30px);
+    opacity: 0;
+}

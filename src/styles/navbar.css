@@ -1,0 +1,160 @@
+nav{
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    /* background: #fff; */
+    /* background: #000; */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    z-index: 1;
+    justify-content: space-around;
+}
+
+
+nav.remove .logo{
+    transform: translateY(-40px);
+    opacity: 0;
+}
+
+nav.remove .right-side{
+    transform: translateY(-40px);
+    opacity: 0;
+}
+
+.logo{
+    margin-right: 60px;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.logo img{
+    width: 200px;
+    height: 80px;
+}
+
+nav .right-side{
+    display: flex;
+    transition: all .3s ease;
+}
+
+nav ul{
+    display: flex;
+}
+
+nav ul li{
+    list-style: none;
+    width: 150px;
+    height: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 7px;
+}
+
+nav ul li a{
+    color: #d3d3d3;
+    text-decoration: none;
+    font-size: 16px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    transition: all .4s ease;
+    cursor: pointer;
+}
+
+nav ul li:hover a:first-child{
+   margin-top: -25px;
+}
+
+nav ul li:hover a:last-child{
+   color: #8B00FF;
+   font-weight: bold;
+ }
+
+nav.white{
+    background: #fff;
+    /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15),
+    0 3px 6px rgba(0, 0, 0, 0.15);
+    height: 80px; */
+}
+
+nav.white .logo img{
+    /* width: 175px;
+    height: 70px; */
+}
+
+nav.white a{
+    color: #000;
+}
+
+nav .loading,
+.full-screen-loader .loading{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 10px;
+    display: none;
+    background: #e6e6e6;
+}
+
+nav .loader,
+.full-screen-loader .loader{
+    background: #8B00FF;
+    height: 100%;
+    width: 30%;
+    position: absolute;
+    left: -10%;
+    transition: all .4s ease;
+    animation: load linear infinite;
+    animation-duration: 3s;
+}
+
+
+nav .loading.show,
+.full-screen-loader .loading.show{
+    display: flex;
+}
+
+ @media screen and (max-width: 890px) {
+    nav{
+        justify-content: space-between;
+    }
+    nav .logo{
+        margin-right: 0px;
+    }
+ }
+
+ @media screen and (max-width: 785px) {
+    nav .right-side{
+        display: none;
+    }
+    nav .logo{
+        margin-left: 15px;
+    }
+    nav .logo img{
+        width: 175px;
+        height: 70px;
+    }
+ }
+
+ @keyframes load {
+    0%{
+        left: 0%;
+        transform: scaleX(1);
+    }
+    40%{
+        transform: scaleX(1.25);
+    }
+    50%{
+        transform: scaleX(1);
+    }
+    100%{
+        transform: scaleX(1);
+        left: 110%;
+    }
+}
+

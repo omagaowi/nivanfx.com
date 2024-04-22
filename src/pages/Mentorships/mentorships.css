@@ -1,0 +1,162 @@
+/* FREE GUIDE STYLES */
+
+.free-guide{
+    width: 100vw;
+    min-height: 100vh;
+    height: auto;
+    position: relative;
+}
+
+.free-guide-bg{
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: -1;
+  background: #1a1a1a;
+}
+
+.free-guide-bg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.free-guide-main{
+    width: 100vw;
+    min-height: 100vh;
+    height: auto;
+    background-image: linear-gradient(180deg, rgb(255, 255, 255) 39%, rgb(255, 255, 255, .7)),
+    linear-gradient(45deg, rgb(255, 255, 255, .2) 10%, rgb(139, 0, 255, .8));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.free-guide-main h1{
+    font-size: clamp(35px, 6vw, 40px);
+    text-align: center;
+    color: #393939;
+    width: 90%;
+    margin-bottom: 10px;
+    transition: all .4s ease;
+}
+
+.free-guide-main p{
+    max-width: 720px;
+    width: 90%;
+    text-align: center;
+    font-size: 15px;
+    color: #4d4d4d;
+    transition: all .4s ease;
+}
+
+.free-guide-main .buttons{
+    transition: all .4s ease;
+}
+
+.free-guide-main button{
+    height: 32px;
+    padding: 0px 10px;
+    margin-top: 15px;
+    background: #8B00FF;
+    color: #fff;
+    border: none;
+    transition: all .3s ease;
+}
+
+.free-guide-main button a{
+    text-decoration: none;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.free-guide-main button:hover{
+    background: #300057;
+    cursor: pointer;
+}
+
+/* PLANS */
+
+.mentorship-plans{
+    width: 100vw;
+    min-height: 100vh;
+    position: relative;
+    height: fit-content;
+}
+
+.mentorship-plans .heading{
+    position: relative;
+    margin-top: 90px;
+    display: flex;
+    justify-content: center;
+}
+
+.mentorship-plans .heading h1{
+    font-size: 34px;
+    color: #585858;
+    transition: all .5s ease;
+ }
+ 
+.mentorship-plans .heading .line{
+     position: absolute;
+     bottom: -15px;
+     height: 7px;
+     width: 210px;
+     background: #930fff;
+     opacity: .6;
+     transition: all .8s ease;
+ }
+ 
+ .mentorship-plans-bg{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    bottom: 0px;
+    right: 0px;
+ }
+
+ .mentorship-plans-bg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+ }
+
+ .mentorship-plans-content{
+    width: 100vw;
+    min-height: 100vh;
+    height: fit-content;
+    background: linear-gradient(180deg, rgb(255, 255, 255) 40%, rgb(255, 255, 255, .8));
+ }
+
+.free-guide-main h1.remove{
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.free-guide-main p.remove{
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.free-guide-main .buttons.remove{
+    transform: translateY(-20px);
+    opacity: 0;
+}
+
+.mentorship-plans-content .heading h1.remove{
+    transform: translateY(-30px);
+    opacity: 0;
+}
+
+.mentorship-plans-content .heading .line.remove{
+    transform: scaleX(0);
+}
+

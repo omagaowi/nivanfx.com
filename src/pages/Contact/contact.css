@@ -1,0 +1,245 @@
+.contact-container{
+    width: 100vw;
+    height: 100vh;
+    background: black;
+}
+
+.contact-container .bg{
+    object-fit: cover;
+    width: 100vw;
+    object-position: center;
+    height: 100vh;
+}
+
+.contact-content{
+    position: absolute;
+    top: 0px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(0, 0, 0, .8), #000 90%);
+    transition: all .4s ease;
+}
+
+
+.contact-content .part{
+    height: 100%;
+}
+
+.contact-content .part:first-child{
+    width: 65%;
+    /* background: blue; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.contact-content .part:first-child .main-text{
+    margin-top: 70px;
+}
+
+
+.contact-content .part:first-child h1{
+    color: #fff;
+    font-size: 50px;
+    margin-left: 16%;
+    transform: scaleX(1.1);
+    transition: all .4s ease;
+}
+
+.contact-content .part:first-child p{
+    color: #767676;
+    margin-left: 13%;
+    margin-top: 5px;
+    width: 90%;
+    max-width: 600px;
+    font-size: 15px;
+    transition: all .4s ease;
+}
+
+.contact-content .social .icon{
+    margin: 0px 10px;
+    transition: all .4s ease;
+}
+
+.contact-content .social svg{
+    color: #fff;
+    width: 30px;
+    transition: all .4s ease;
+    height: 30px;
+}
+
+.contact-content .social svg:hover{
+    color: #8B00FF;
+    cursor: pointer;
+}
+
+.contact-content .social{
+    display: flex;
+    margin-left: 13%;
+    margin-top: 15px;
+}
+
+
+.contact-content .part:last-child{
+    width: 30%;
+    /* background: red; */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 30px;
+}
+
+.contact-content .part:last-child .item{
+    margin: 20px 0px;
+}
+
+.contact-content .part:last-child .item:first-child{
+    margin-top: 75px;
+}
+
+.contact-content .part:last-child .item svg{
+    width: 60px;
+    transition: all .4s ease;
+    height: 60px;
+}
+
+.contact-content .part:last-child .item p{
+    /* margin-top: 5px; */
+    /* font-size: 14px; */
+    font-weight: 100;
+    transition: all .4s ease;
+    cursor: pointer;
+    color: #8c00ff;
+}
+
+.contact-content .part:last-child .item h3{
+    font-weight: 100;
+    font-size: 30px;
+    transition: all .4s ease;
+}
+
+.contact-content .part:last-child .item a{
+    font-weight: 100;
+    font-size: 20px;
+    transition: all .4s ease;
+    color: #8c00ff;
+    text-decoration: none;
+}
+
+.contact-content .part:last-child .item a:hover{
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 715px) {
+    .contact-content{
+        flex-direction: column;
+        height: auto;
+        background: linear-gradient(180deg, #000 30px, rgba(0, 0, 0, .8), #000 70%)
+    }
+
+    .contact-container nav{
+        background: #000;
+    }
+    .contact-content .part{
+        width: 100vw;
+        min-height: 500px;
+        height: auto;
+    }
+    .contact-content .part:first-child{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+    }
+    .contact-content .part:first-child .main-text{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .contact-content .part:first-child h1{
+        text-align: center;
+        font-size: clamp(40px, 7vw, 50px);
+        margin-left: 0px;
+    }
+    .contact-content .part:first-child p{
+        margin-left: 0px;
+        font-size: 13px;
+        width: 90%;
+        margin-right: 0px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .contact-content .part:first-child .social{
+        margin-left: 0px;
+    }
+
+    .contact-content .part:last-child{
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        padding: 0px;
+    }
+
+    .contact-content .part:last-child .item:first-child{
+        margin-top: 5px;
+    }
+
+    .contact-content .part .item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-content .part:last-child .item svg{
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* remove classess */
+
+.contact-content.remove{
+    background: #000;
+}
+
+.contact-content .part:first-child h1.remove{
+    transform: translateX(-20px)
+    scaleX(1.1);
+    opacity: 0;
+}
+
+.contact-content .part:first-child p.remove{
+    transform: translateX(-20px);
+    opacity: 0;
+}
+
+.contact-content .social .icon.remove{
+    transform: translateY(-20px);
+    opacity: 0;
+}
+
+
+
+
+.contact-content .item.remove svg{
+    transform: translateX(-30px);
+    opacity: 0;
+}
+
+.contact-content .item h3.remove{
+    transform: translateX(-30px);
+    opacity: 0;
+}
+
+.contact-content .item p.remove{
+    transform: translateX(-30px);
+    opacity: 0;
+}

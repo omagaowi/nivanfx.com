@@ -1,0 +1,60 @@
+.home-main{
+    width: 100vw;
+    min-height: calc(100vh);
+    height: auto;
+    /* background: red; */
+    background: #000;
+    position: relative;
+    top: 0px;
+}
+
+
+.full-body{
+    width: 100vw;
+    height: 200vh;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    pointer-events: none;
+}
+
+.full-body .body-part{
+    width: 100vw;
+    min-height: 100vh;
+    height: fit-content;
+}
+
+.full-body .body-part:nth-child(2){
+    pointer-events: all;
+    background: url('../../assets/firstbg.jpg');
+    background-size: cover;
+}
+
+
+.full-body .body-part:nth-child(3){
+    pointer-events: all;
+    background: url('../../assets/services.jpg');
+    background-size: cover;
+}
+
+.full-body .body-part:nth-child(4){
+    pointer-events: all;
+    background: url('../../assets/community2.jpg');
+    background-size: cover;
+}
+
+
+@media screen and (max-width: 400px) {
+    full-body .body-part:nth-child(2){
+        pointer-events: all;
+        background: url('../../assets/firstbg_mini.png');
+        background-size: cover;
+    }
+    
+    
+    .full-body .body-part:nth-child(3){
+        pointer-events: all;
+        background: url('../../assets/services_mini.png');
+        background-size: cover;
+    }
+}

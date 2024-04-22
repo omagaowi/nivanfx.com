@@ -1,0 +1,189 @@
+.free-section{
+    width: 100vw;
+    min-height: 100vh;
+    height: auto;
+    position: relative;
+}
+
+.free-section .bg{
+   position: absolute;
+   top: 0px;
+   right: 0px;
+   bottom: 0px;
+   z-index: -1;
+   height: 100vh;
+   object-fit: cover;
+}
+
+
+.free-section-content{
+    width: 100vw;
+    display: flex;
+    min-height: 100vh;
+    height: auto;
+    background: linear-gradient(90deg, #fff 30%, rgb(255, 255, 255, .8));
+}
+
+.free-section-content .part{
+    width: 50%;
+    height: auto;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.free-section-content .part:first-child{
+    align-items: center;
+}
+
+
+.free-section-content .free-section-image{
+    max-width: 390px;
+    width: 95%;
+    position: relative;
+    left: 24px;
+    aspect-ratio: 1/1.1;
+    /* background: url('../../assets/mentorship.jpg'); */
+    background-size: cover;
+    transition: all .4s ease;
+    /* clip-path: polygon(24% 0, 100% 0, 100% 100%, 0 100%, 0 24%); */
+    /* background: #676767; */
+}
+
+.free-section-content .free-section-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-top: 0px;
+    /* clip-path: polygon(24% 0, 100% 0, 100% 100%, 0 100%, 0 24%); */
+}
+
+.free-section-content .part:last-child h3{
+    color: #3a3a3a;
+    font-size: 23px;
+    margin-bottom: 8px;
+    transition: all .4s ease;
+}
+
+.free-section-content .part:last-child p{
+    max-width: 650px;
+    width: 90%;
+    color: #636363;
+    line-height: 25px;
+    transition: all .4s ease;
+}
+
+.free-section-content .buttons{
+    display: flex;
+    margin-top: 10px;
+    margin-left: 7px;
+    transition: all .4s ease;
+}
+
+.free-section-content .buttons button{
+   width: 90px;
+   height: 30px; 
+   color: #fff;
+   border: none;
+   outline: none;
+   background: #8B00FF;
+   cursor: pointer;
+}
+
+.free-section button:hover{
+    cursor: pointer;
+    background: #4b0088;
+}
+
+
+.free-section-content a{
+    color: #8B00FF;
+}
+
+.free-section.paid .free-section-content{
+    flex-direction: row-reverse;
+}
+
+.free-section.paid .part:last-child{
+    padding-left: 100px;
+}
+
+.free-section.paid .part:last-child p{
+    width: 100%;
+}
+
+.free-section.paid .free-section-image img{
+    filter: brightness(-2);
+}
+
+@media screen and (max-width: 950px) {
+    .free-section-content .free-section-image{
+        left: 0px;
+    }
+}
+
+@media screen and (max-width: 670px){
+.free-section-content{
+    flex-direction: column;
+    min-height: 400px;
+}
+
+.free-section-content .part:first-child{
+    display: none;
+}
+
+
+.free-section-content .part{
+    width: 100vw;
+    height: auto;
+}
+
+.free-section-content .part:last-child{
+    align-items: center;
+    justify-content: center;
+}
+
+.free-section-content .part p{
+    text-align: center;
+}
+
+.free-section.paid .part:last-child{
+    padding-left: 0px;
+}
+
+.free-section.paid .part:last-child p{
+    width: 90%;
+}
+
+}
+
+/* remove classess */
+
+.free-section.free .free-section-image.remove{
+    transform: translateX(-40px);
+    opacity: 0;
+}
+
+.free-section.paid .free-section-image.remove{
+    transform: translateX(40px);
+    opacity: 0;
+}
+.free-section.free h3.remove,
+.free-section.paid h3.remove{
+    transform: translateX(-30px);
+    opacity: 0;
+}
+
+.free-section.free p.remove,
+.free-section.paid p.remove{
+    transform: translateX(-30px);
+    opacity: 0;
+}
+
+.free-section.free .buttons.remove,
+.free-section.paid .buttons.remove{
+    transform: translateY(-20px);
+    opacity: 0;
+}
+

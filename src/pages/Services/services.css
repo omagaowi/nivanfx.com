@@ -1,0 +1,268 @@
+.service-main{
+    width: 100vw;
+    min-height: 100vh;
+    height: fit-content;
+    /* background: #fff; */
+    background: linear-gradient(180deg, rgb(255, 255, 255) 40%, rgb(255, 255, 255, .8));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.service-main .heading{
+    position: relative;
+    margin-top: 90px;
+    display: flex;
+    justify-content: center;
+}
+
+.services-page .heading{
+    margin-top: 120px;
+}
+
+.service-main .heading h1{
+   font-size: 34px;
+   color: #585858;
+   transition: all .4s ease;
+}
+
+.service-main .heading .line{
+    position: absolute;
+    bottom: -10px;
+    height: 7px;
+    width: 107%;
+    transition: all .8s ease;
+    background: #930fff;
+    opacity: .6;
+}
+
+.service-main .cards{
+   margin-top:  80px;
+    width: 85%;
+    height: fit-content;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    margin-bottom: 50px;
+    grid-gap: 40px;
+}
+
+.service-main .card{
+    background: #fff;
+    height: 370px;
+    width: 330px;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15),
+    0 3px 6px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: all .4s ease;
+}
+
+
+.service-main .card-bg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -30px;
+    left: 0px;
+}
+
+.service-main .card-bg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.service-main .card.mentorships .card-bg{
+    /* background: url('../../assets/mentorship.jpg'); */
+     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.service-main .card.signals .card-bg{
+    /* background: url('../../assets/signal.jpg'); */
+     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.service-main .card.portfolio .card-bg{
+    /* background: url('../../assets/portfolio.jpg'); */
+     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.service-main .card-stuff{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    /* z-index: 1; */
+    background: #fff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+.card-stuff .icon{
+    position: relative;
+    top: 60px;
+    left: 30px;
+}
+
+.card-stuff .icon svg{
+    width: 50px;
+    height: 50px;
+    color: #8d896f;
+}
+
+.card-stuff .sub-heading{
+   position: relative;
+   top: 80px;
+   left: 30px;
+   width: 90%;
+   max-width: fit-content;
+   transition: all 0.5s ease;
+   color: #2f2f2f;
+}
+
+.card-stuff h1{
+    color: #343434;
+    font-size: 36px;
+    transition: all 0.5s ease;
+}
+
+.card-stuff .text{
+    width: 80%;
+    position: relative;
+    top: 100px;
+    left: 30px;
+    height: auto;
+    transition: all 0.5s ease;
+}
+
+.card-stuff p{
+    width: 100%;
+    font-weight: 100;
+    color: #6a6a6a;
+    font-size: 14px;
+    transition: all 0.5s ease;
+}
+
+.card-stuff .link{
+    position: relative;
+    top: 120px;
+    left: 30px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+}
+
+.card-stuff .link svg{
+    width: 25px;
+    height: 25px;
+    transition: all 0.5s ease;
+}
+
+.card.portfolio h1{
+    font-size: 30px;
+}
+
+.card.portfolio .text{
+    top: 90px;
+}
+
+.card.portfolio .link{
+    top: 110px;
+}
+
+.card-stuff.push{
+    background: linear-gradient(180deg, rgb(0, 0, 0, .6) 5%, rgb(0, 0, 0))
+}
+
+.card-stuff.push .icon svg{
+    display: none;
+}
+
+.card-stuff.push .sub-heading{
+    top: 170px;
+}
+
+.card-stuff.push h1{
+    color: #fff;
+}
+
+.card-stuff.push .text{
+    top: 190px;
+}
+
+.card-stuff.push .text p{
+    color: #a4a4a4;
+}
+
+.card-stuff.push .link{
+    top: 210px;
+    width: 35px;
+    height: 35px;
+}
+
+.card-stuff .link:hover{
+    background: blue;
+    cursor: pointer;
+    color: #fff;
+}
+
+.card-stuff .link:hover svg{
+    color: #fff;
+}
+
+.card-stuff.push svg{
+    width: 25px;
+    margin-top: 5px;
+    height: 25px;
+    color: #fff;
+}
+
+
+.card.portfolio .card-stuff.push .sub-heading{
+    top: 155px;
+}
+
+
+.card.portfolio .card-stuff.push .text{
+    top: 170px;
+}
+
+.card.portfolio .card-stuff.push .link{
+    top: 190px;
+}
+
+/* remove classess */
+
+.service-main .heading h1.remove{
+    transform: translateY(-30px);
+    opacity: 0;
+}
+
+.service-main .heading .line.remove{
+    transform: scaleX(0);
+}
+
+.service-main .card.remove{
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+.service-main .card.remove-mobile{
+    transform: translateX(-30px);
+    opacity: 0;
+}
