@@ -96,6 +96,8 @@ const plansHeaderAnimation = (plansRef) => {
     useObserver(heading, plansHeaderOptions, plansHeaderCallback);
 }
 
+
+
 const plansCardAnimation = (plansRef, card, index, isPlanDesktop) => {
     card.classList.add('remove')
      let planCardOptions = {
