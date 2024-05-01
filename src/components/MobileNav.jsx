@@ -1,10 +1,24 @@
-import { useState } from 'react'
+import { useState, useTransition } from 'react'
+import { useNavigate } from 'react-router'
 import '../styles/mobileNav.css'
+import { navbarRef } from './NavBar.jsx'
 
 let toggleMobileNav 
 
 const MobileNav = () => {
     const [show, setShow] = useState(false)
+    const [isPending, startTransition] = useTransition()
+    const navigate = useNavigate()
+
+    if(isPending){
+        if(navbarRef.current){
+            navbarRef.current.querySelector('.loading').classList.add('show')
+        }
+    }else{
+        if(navbarRef.current){
+            navbarRef.current.querySelector('.loading').classList.remove('show')
+        }
+    }
 
     toggleMobileNav = (state) => {
         setShow(state)
@@ -20,10 +34,22 @@ const MobileNav = () => {
                       </svg>
                 </div>
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Services</a></li>
-                    <li><a href="">Contact</a></li>
-                    <li><a href="">Broker</a></li>
+                    <li><a onClick={()=>{
+                            startTransition(()=>{
+                                navigate('/')
+                            })
+                        }}>Home</a></li>
+                    <li><a  onClick={()=>{
+                            startTransition(()=>{
+                                navigate('/services')
+                            })
+                        }}>Services</a></li>
+                    <li><a onClick={()=>{
+                            startTransition(()=>{
+                                navigate('/contact')
+                            })
+                        }}>Contact</a></li>
+                    <li> <a href='https://one.exnesstrack.net/a/yke3rzwi9i' target='default'>Broker</a></li>
                 </ul>
         </div>
     )
