@@ -6,6 +6,7 @@ import './signals.css'
 import { runSignalsAnimations } from "../../animations/signalsAnimations.js"
 import { navAnimationsDesktop } from "../../animations/navAnimations.js"
 import Footer from "../../components/Footer.jsx"
+import MobileNav from "../../components/MobileNav.jsx"
 
 const Signals = () => { 
     let rendered = false
@@ -26,6 +27,7 @@ const Signals = () => {
     return (
         <div className="signals container" ref={ signalsMainRef }>
              <NavBar white = { true }/>
+             <MobileNav />
              <SignalsMain />
              <Footer />
         </div>

@@ -6,6 +6,7 @@ import { serviceRef } from "./ServiceSection.jsx"
 import { serviceCardsAnimation } from "../../animations/homeAnimations.js"
 import { servicesHeaderAnimation } from "../../animations/homeAnimations.js"
 import Footer from "../../components/Footer.jsx"
+import MobileNav from "../../components/MobileNav.jsx"
 
 
 const ServicesPage = () => {
@@ -40,6 +41,7 @@ const ServicesPage = () => {
     return (
         <div className="services-page">
             <NavBar white={ true } />
+            <MobileNav />
             <ServiceSection />
             <Footer />
         </div>

@@ -5,6 +5,7 @@ import MentorshipsMain from "./MentorshipsMain.jsx"
 import { navAnimationsDesktop } from "../../animations/navAnimations.js"
 import { runMentorshipAnimations } from "../../animations/mentorshipAnimations.js"
 import Footer from "../../components/Footer.jsx"
+import MobileNav from "../../components/MobileNav.jsx"
 
 const Mentorships = () => {
     let rendered = false
@@ -45,6 +46,7 @@ const Mentorships = () => {
     return (
         <div className="mentorships container" ref={ mentorshipMainRef }>
             <NavBar white = { true }/>
+            <MobileNav />
             <MentorshipsMain />
             <Footer />
         </div>

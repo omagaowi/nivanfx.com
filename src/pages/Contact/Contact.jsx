@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import { navAnimationsDesktop } from '../../animations/navAnimations.js'
 import { runContactAnimations } from '../../animations/contactAnimations.js'
 import Footer from '../../components/Footer.jsx'
+import MobileNav from '../../components/MobileNav.jsx'
 
 
 const Contact = () => {
@@ -25,6 +26,7 @@ const Contact = () => {
     return (
         <div className="container contact-container">
              <NavBar white = { false }/>
+             <MobileNav />
              <ContactMain />
              <Footer black={ true }/>
         </div>

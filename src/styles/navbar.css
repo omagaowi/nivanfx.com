@@ -113,6 +113,9 @@ nav .loader,
     animation-duration: 3s;
 }
 
+nav .hamburger{
+    display: none;
+}
 
 nav .loading.show,
 .full-screen-loader .loading.show{
@@ -138,6 +141,25 @@ nav .loading.show,
     nav .logo img{
         width: 175px;
         height: 70px;
+    }
+
+    nav .hamburger{
+        display: flex;
+        position: absolute;
+    }
+
+    nav .hamburger svg{
+        color: #fff;
+        width: 30px;
+        height: 30px;
+    }
+
+    nav.white .hamburger svg{
+        color: #000;
+    }
+
+    nav .logo{
+        margin-left: 80px;
     }
  }
 

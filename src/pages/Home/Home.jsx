@@ -7,6 +7,7 @@ import HomeMain from "./HomeMain.jsx"
 import { navAnimationsDesktop } from "../../animations/navAnimations.js"
 import { runHomeAnimations } from "../../animations/homeAnimations.js"
 import { heroRef } from "./HeroSection/HeroSection.jsx"
+import MobileNav from "../../components/MobileNav.jsx"
 const Home = () => {
     let rendered = false
     useEffect(()=>{
@@ -19,6 +20,7 @@ const Home = () => {
     return (
         <div className="container home-container">
             <NavBar white = { false }/>
+            <MobileNav />
             <HomeMain />
         </div>
     )

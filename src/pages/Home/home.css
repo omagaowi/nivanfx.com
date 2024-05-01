@@ -24,7 +24,7 @@
     height: fit-content;
 }
 
-.full-body .t:nth-child(2){
+.full-body .body-part:nth-child(2){
     pointer-events: all;
     background: #fff;
     background: url('../../assets/firstbg.jpg');
