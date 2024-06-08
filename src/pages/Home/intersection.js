@@ -35,10 +35,10 @@ const runObserver = (navbar, firstSection, homeMainRef, heroRef) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
             navbar.current.classList.add('white')
-            navbar.current.querySelector(".logo img").src = "/src/assets/logo.png";
+            navbar.current.querySelector(".logo img").src = localStorage.getItem('navLogo')? localStorage.getItem('navLogo'): 'http://localhost:3000/logo' ;
         }else{
              navbar.current.classList.remove("white");
-              navbar.current.querySelector(".logo img").src = "/src/assets/logo2.png";
+              navbar.current.querySelector(".logo img").src = localStorage.getItem('navLogo2')? localStorage.getItem('navLogo2'): 'http://localhost:3000/logo2';
         }
       });
     };

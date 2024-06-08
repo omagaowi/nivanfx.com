@@ -21,6 +21,7 @@
 .full-body .body-part{
     width: 100vw;
     min-height: 100vh;
+    position: relative;
     height: fit-content;
 }
 
@@ -29,6 +30,16 @@
     background: #fff;
     background: url('../../assets/firstbg.jpg');
     background-size: cover;
+}
+
+.full-body .white-bg{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: -1;
+    background: #fff;
 }
 
 

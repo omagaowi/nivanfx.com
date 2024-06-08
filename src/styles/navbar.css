@@ -28,12 +28,40 @@ nav.remove .right-side{
     margin-right: 60px;
     transition: all .3s ease;
     cursor: pointer;
+    position: relative;
 }
+
+.logo .logo-loader{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    opacity: 0;
+    background: linear-gradient(45deg, #ffffff1a 10%, #2a2a2a 30%, #ffffff1a);
+}
+
+
+
+nav.white .logo .logo-loader{
+    background: linear-gradient(45deg, #dadada 10%, #c8c8c8 30%, #dadada);
+}
+
 
 .logo img{
     width: 200px;
+    opacity: initial;
     height: 80px;
 }
+
+.logo.logo-loading img{
+    opacity: 0;
+}
+
+.logo.logo-loading .logo-loader{
+    opacity: initial;
+}
+
 
 nav .right-side{
     display: flex;
@@ -180,3 +208,11 @@ nav .loading.show,
     }
 }
 
+@keyframes logoGradient {
+    from{
+        background: linear-gradient(45deg, #ffffff1a -10%, #2a2a2a 00%, #ffffff1a);
+    }
+    to{
+        background: linear-gradient(45deg, #ffffff1a 10%, #2a2a2a 30%, #ffffff1a);
+    }
+}

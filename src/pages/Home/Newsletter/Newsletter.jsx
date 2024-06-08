@@ -66,7 +66,7 @@ const Newsletter = () => {
                         setEmailText(e.target.value)
                     }}/>
                 </div>
-                <button class="suscribe-btn" onClick={()=>{
+                <button class="suscribe-btn" onMouseDown={()=>{
                     joinNewsletter()
                 }}>
                     <p>Suscribe</p>

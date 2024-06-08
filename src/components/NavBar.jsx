@@ -9,6 +9,7 @@ let navbarRef
 
 const NavBar = ({white}) => {
     navbarRef = useRef(false)
+    const logoRef = useRef(false)
     const [isPending, startTransition] = useTransition()
     const navigate = useNavigate()
 
@@ -33,18 +34,27 @@ const NavBar = ({white}) => {
                 <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
                 </svg>
             </div>
-            <div className="logo" onClick={()=>{
+            <div className="logo logo-loading" id= "navbar-logo" ref={ logoRef } onClick={()=>{
                             startTransition(()=>{
                                 navigate('/')
                             })
                         }}>
                 {
                     white? (
-                        <img src={ Logo2  } alt="" loading='lazy'/>
+                        <img src={ localStorage.getItem('navLogo')? localStorage.getItem('navLogo'): 'https://raw.githubusercontent.com/omagaowi/nivanfx.com/main/src/assets/logo.png'  } alt="" loading='lazy' onLoad={()=>{
+                            if(logoRef){
+                                logoRef.current.classList.remove('logo-loading')
+                            }
+                        }}/>
                     ):(
-                        <img src={ Logo } alt="" loading='lazy'/>
+                        <img src={ localStorage.getItem('navLogo2')? localStorage.getItem('navLogo2'): 'https://raw.githubusercontent.com/omagaowi/nivanfx.com/main/src/assets/logo2.png'  } alt="" loading='lazy' onLoad={()=>{
+                            if(logoRef){
+                                logoRef.current.classList.remove('logo-loading')
+                            }
+                        }}/>
                     )
                 }
+                  <div className="logo-loader"></div>
             </div>
             <div className="right-side">
                 <ul>
