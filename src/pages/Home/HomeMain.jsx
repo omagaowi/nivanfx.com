@@ -14,7 +14,7 @@ const HomeMain = () => {
 
 
     const scrollMatch = () => {
-        if(window.location.href.split('/')[3] == ''){
+        // if(window.location.href.split('/')[3] == ''){
             const scrollPosition = window.scrollY
             const nintyPercent = (90 / 100) * window.innerHeight
             if(scrollPosition >= nintyPercent){
@@ -24,7 +24,7 @@ const HomeMain = () => {
              navbarRef.current.classList.remove("white");
              navbarRef.current.querySelector(".logo img").src = '/logo2.png'
             }
-        }
+        // }
     }
     useEffect(()=>{
         window.addEventListener('scroll', scrollMatch)
@@ -37,6 +37,9 @@ const HomeMain = () => {
              navbarRef.current.classList.remove("white");
             //  navbarRef.current.querySelector(".logo img").src =localStorage.getItem('navLogo2')? localStorage.getItem('navLogo2'): 'http://localhost:3000/logo2';
             }
+        return () => {
+            window.removeEventListener('scroll')
+        }
     }, [])
     return (
         <div className="home-main" ref={ homeMainRef }>
