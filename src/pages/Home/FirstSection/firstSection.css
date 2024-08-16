@@ -25,6 +25,7 @@
     height: 430px;
     width: 80%;
     transition: all .3s ease;
+    background-image: url('/section1_bg.jpg');
     transform: translate(-30%, 10%);
 }
 

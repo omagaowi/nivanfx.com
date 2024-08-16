@@ -22,7 +22,8 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    background-image: url('https://raw.githubusercontent.com/omagaowi/nivanfx.com/ce022aa2dc759265cf3f1f63d468348a755e7744/src/assets/heroimage2.png');
+    /* background-image: url('https://raw.githubusercontent.com/omagaowi/nivanfx.com/ce022aa2dc759265cf3f1f63d468348a755e7744/src/assets/heroimage2.png'); */
+    background-image: url('/heroimage2.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right;
@@ -97,7 +98,8 @@
 }
 @media screen and (max-width: 493px) {
     .hero-image{
-        background-image: url('https://raw.githubusercontent.com/omagaowi/nivanfx.com/ce022aa2dc759265cf3f1f63d468348a755e7744/src/assets/heroImageMobile.png');
+        /* background-image: url('https://raw.githubusercontent.com/omagaowi/nivanfx.com/ce022aa2dc759265cf3f1f63d468348a755e7744/src/assets/heroImageMobile.png'); */
+        background-image: url('/heroImageMobile.png');
     }
 }
 

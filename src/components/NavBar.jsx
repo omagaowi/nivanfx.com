@@ -41,13 +41,13 @@ const NavBar = ({white}) => {
                         }}>
                 {
                     white? (
-                        <img src={ localStorage.getItem('navLogo')? localStorage.getItem('navLogo'): 'https://raw.githubusercontent.com/omagaowi/nivanfx.com/main/src/assets/logo.png'  } alt="" loading='lazy' onLoad={()=>{
+                        <img src={ '/logo.png' } alt="" loading='lazy' onLoad={()=>{
                             if(logoRef){
                                 logoRef.current.classList.remove('logo-loading')
                             }
                         }}/>
                     ):(
-                        <img src={ localStorage.getItem('navLogo2')? localStorage.getItem('navLogo2'): 'https://raw.githubusercontent.com/omagaowi/nivanfx.com/main/src/assets/logo2.png'  } alt="" loading='lazy' onLoad={()=>{
+                        <img  src={ '/logo2.png' } alt="" loading='lazy' onLoad={()=>{
                             if(logoRef){
                                 logoRef.current.classList.remove('logo-loading')
                             }

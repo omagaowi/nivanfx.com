@@ -8,6 +8,8 @@ import { navAnimationsDesktop } from "../../animations/navAnimations.js"
 import { runHomeAnimations } from "../../animations/homeAnimations.js"
 import { heroRef } from "./HeroSection/HeroSection.jsx"
 import MobileNav from "../../components/MobileNav.jsx"
+
+
 const Home = () => {
     let rendered = false
     useEffect(()=>{

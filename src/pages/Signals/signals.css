@@ -1,3 +1,7 @@
+.signals-main .service-hero-image{
+    background-image: url('/signals_bg.jpg');
+}
+
 .free-section{
     width: 100vw;
     min-height: 100vh;
@@ -49,6 +53,14 @@
     transition: all .4s ease;
     /* clip-path: polygon(24% 0, 100% 0, 100% 100%, 0 100%, 0 24%); */
     /* background: #676767; */
+}
+
+.free-section-content:nth-child(1) .free-section-image{
+    background-image: url('/free_signal_bg.jpg');
+}
+
+.free-section-content:nth-child(2) .free-section-image{
+    background-image: url('/paid_signal_bg.jpg');
 }
 
 .free-section-content .free-section-image img{

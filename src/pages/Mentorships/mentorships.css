@@ -1,5 +1,10 @@
 /* FREE GUIDE STYLES */
 
+
+.mentorship-main .service-hero-image{
+    background-image: url('/mentorship_bg.png');
+}
+
 .free-guide{
     width: 100vw;
     min-height: 100vh;

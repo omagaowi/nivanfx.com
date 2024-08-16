@@ -15,40 +15,40 @@
     </div>
     <script type="module" src="/src/main.jsx"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', ()=>{
-        fetch('https://raw.githubusercontent.com/omagaowi/nivanfx.com/main/src/assets/logo2.png').then((response)=>{
-          return response.blob()
-        }).then((data)=>{
-          const logoNav = document.querySelector('#navbar-logo')
-          const reader = new FileReader()
-          reader.onload = ()=>{
-            const base64data = reader.result;
-            localStorage.setItem('navLogo2', base64data)
-            if(logoNav){
-            if(logoNav.parentElement.classList.contains('white')){
-              logoNav.querySelectorAll('img')[0].src = base64data
-            }
-          }
-          }
-          reader.readAsDataURL(data)
-        })
-        fetch('https://raw.githubusercontent.com/omagaowi/nivanfx.com/main/src/assets/logo.png').then((response)=>{
-          return response.blob()
-        }).then((data)=>{
-          const logoNav = document.querySelector('#navbar-logo')
-          const reader = new FileReader()
-          reader.onload = ()=>{
-            const base64data = reader.result;
-            localStorage.setItem('navLogo', base64data)
-            if(logoNav){
-              if(logoNav.parentElement.classList.contains('white')){
-                logoNav.querySelectorAll('img')[0].src = base64data
-              }
-            }
-          }
-          reader.readAsDataURL(data)
-        })
-      })
+      // document.addEventListener('DOMContentLoaded', ()=>{
+      //   fetch('https://raw.githubusercontent.com/omagaowi/nivanfx.com/main/src/assets/logo2.png').then((response)=>{
+      //     return response.blob()
+      //   }).then((data)=>{
+      //     const logoNav = document.querySelector('#navbar-logo')
+      //     const reader = new FileReader()
+      //     reader.onload = ()=>{
+      //       const base64data = reader.result;
+      //       localStorage.setItem('navLogo2', base64data)
+      //       if(logoNav){
+      //       if(logoNav.parentElement.classList.contains('white')){
+      //         logoNav.querySelectorAll('img')[0].src = base64data
+      //       }
+      //     }
+      //     }
+      //     reader.readAsDataURL(data)
+      //   })
+      //   fetch('https://raw.githubusercontent.com/omagaowi/nivanfx.com/main/src/assets/logo.png').then((response)=>{
+      //     return response.blob()
+      //   }).then((data)=>{
+      //     const logoNav = document.querySelector('#navbar-logo')
+      //     const reader = new FileReader()
+      //     reader.onload = ()=>{
+      //       const base64data = reader.result;
+      //       localStorage.setItem('navLogo', base64data)
+      //       if(logoNav){
+      //         if(logoNav.parentElement.classList.contains('white')){
+      //           logoNav.querySelectorAll('img')[0].src = base64data
+      //         }
+      //       }
+      //     }
+      //     reader.readAsDataURL(data)
+      //   })
+      // })
     </script>
   </body>
 </html>
