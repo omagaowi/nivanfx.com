@@ -47,7 +47,7 @@ const Plans = () => {
     const Plan = ({plan}) => {
         return (
                 <div className="plan no-opacity">
-                    <div className="banner"></div>
+                    {/* <div className="banner"></div> */}
                     <h2>{plan.plan}</h2>
                     <div className="price">
                         <div className="currency">
