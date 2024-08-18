@@ -20,6 +20,7 @@
     position: relative;
     margin-bottom: 20px;
     transition: all .4s ease;
+    z-index: 0;
     flex-direction: column;
     align-items: center;
 }
@@ -38,7 +39,9 @@
     content: '50% Off';
     width: 130%;
     height: 40px;
-    background: purple;
+    background: #930fff;
+    background: linear-gradient(45deg, #930fff 50%, #570a96);
+    color: #fff;
     transform: rotate(-45deg) translate(-60px, -30px);
     position: absolute;
     top: 45%;
@@ -46,20 +49,18 @@
     clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15),
-    0 3px 6px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     z-index: 1;
 }
 
 .plan .banner::after{
     content: '';
-    background: red;
+    background: #3f0073;
     position: absolute;
     bottom: -96px;
     left: -20px;
     width: 10px;
     height: 10px;
-    background: red;
     z-index: 0;
 }
 
@@ -127,4 +128,14 @@
 .plans .plan.remove{
     transform: translateY(-30px);
     opacity: 0;
+}
+
+.plan .price-og{
+    display: flex;
+    color: #a8a8a8;
+    text-decoration: line-through
+}
+
+.plan .price-og .digit{
+    color: #a8a8a8;
 }
