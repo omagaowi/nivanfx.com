@@ -17,10 +17,50 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15),
     0 3px 6px rgba(0, 0, 0, 0.15);
     display: flex;
+    position: relative;
     margin-bottom: 20px;
     transition: all .4s ease;
     flex-direction: column;
     align-items: center;
+}
+
+
+.plan .banner{
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    width: 150px;
+    height: 50px;
+    /* background: red; */
+}
+
+.plan .banner::before{
+    content: '50% Off';
+    width: 130%;
+    height: 40px;
+    background: purple;
+    transform: rotate(-45deg) translate(-60px, -30px);
+    position: absolute;
+    top: 45%;
+    display: flex;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15),
+    0 3px 6px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+}
+
+.plan .banner::after{
+    content: '';
+    background: red;
+    position: absolute;
+    bottom: -96px;
+    left: -20px;
+    width: 10px;
+    height: 10px;
+    background: red;
+    z-index: 0;
 }
 
 .plan h2{
