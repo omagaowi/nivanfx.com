@@ -71,6 +71,11 @@
     transition: all .3s;
 }
 
+.hero-section .buttons button a{
+    color: #fff;
+    text-decoration: none;
+}
+
 .hero-section .buttons button:hover{
     background: #8B00FF;
     cursor: pointer;

@@ -2,6 +2,7 @@ import { useRef, useTransition } from 'react'
 import { useNavigate } from 'react-router'
 import './hero.css'
 import { navbarRef } from '../../../components/NavBar.jsx'
+import { NavLink } from 'react-router-dom'
 
 
 let heroRef
@@ -32,14 +33,18 @@ const HeroSection = () => {
                     <div className="buttons no-opacity">
                         <button onClick={()=>{
                             startTransition(()=>{
-                                navigate('services/mentorships/#plans')
+                                navigate('/services/mentorships/#plans')
                             })
-                        }}>Explore Plans</button>
+                        }}><NavLink to = { '/services/mentorships/#plans' } onClick={ (e) => {
+                            e.preventDefault()
+                        } }>Explore Plans</NavLink></button>
                         <button  onClick={()=>{
                             startTransition(()=>{
                                 navigate('/contact')
                             })
-                        }}>Contact Us</button>
+                        }}><NavLink to = { '/contact' } onClick={ (e) => {
+                            e.preventDefault()
+                        } }>Contact Us</NavLink></button>
                     </div>
                 </div>
             </div>

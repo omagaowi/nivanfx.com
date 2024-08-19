@@ -103,6 +103,11 @@
    cursor: pointer;
 }
 
+.free-section-content .buttons button a{
+    text-decoration: none;
+    color: #fff;
+}
+
 .free-section button:hover{
     cursor: pointer;
     background: #4b0088;

@@ -78,9 +78,9 @@ const Plans = () => {
                             ))
                         }
                     </div>
-                    <button onClick = { () => {
+                    <button onClick={ (e) => {
                         window.location.href = plan.link
-                    } }>Enroll Now</button>
+                    } }><a href={ plan.link }>Enroll Now</a></button>
                 </div>
         )
     }

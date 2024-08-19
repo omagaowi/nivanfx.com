@@ -123,6 +123,11 @@
     background: #930fff;
 }
 
+.plan button a{
+    color: #fff;
+    text-decoration: none;
+}
+
 /* remove classess */
 
 .plans .plan.remove{

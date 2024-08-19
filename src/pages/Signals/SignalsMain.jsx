@@ -48,9 +48,9 @@ const SignalsMain = () => {
                      <h3 className="no-opacity">PREMIUM SIGNALS</h3>
                      <p className="no-opacity">Access Premium Signals for Unparalleled Insights and Profitability. With Nivan FX's Premium Signals, get exclusive access to advanced analytics, expert recommendations, and precise market forecasts. Gain access to our pro trading signals at 50% discount of <b style={{color: "#8B00FF"}}>$15/mo</b>.</p>
                      <div className="buttons no-opacity">
-                        <button onClick={()=> {
+                        <button onClick={ () => {
                             window.location.href = 'https://nivan-api.onrender.com/redirect/payment/signals'
-                        }}>Join now</button>
+                        } }><a href="https://nivan-api.onrender.com/redirect/payment/signals">Join Now</a></button>
                      </div>
                    </div>
                 </div>

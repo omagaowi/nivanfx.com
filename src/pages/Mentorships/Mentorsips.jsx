@@ -6,6 +6,7 @@ import { navAnimationsDesktop } from "../../animations/navAnimations.js"
 import { runMentorshipAnimations } from "../../animations/mentorshipAnimations.js"
 import Footer from "../../components/Footer.jsx"
 import MobileNav from "../../components/MobileNav.jsx"
+import { Helmet } from "react-helmet"
 
 const Mentorships = () => {
     let rendered = false
@@ -44,12 +45,19 @@ const Mentorships = () => {
         }
     }, [])
     return (
-        <div className="mentorships container" ref={ mentorshipMainRef }>
-            <NavBar white = { true }/>
-            <MobileNav />
-            <MentorshipsMain />
-            <Footer />
-        </div>
+        <>
+            <Helmet>
+                <title>Mentorships | Nivan FX</title>
+                <meta name="description" content="Unlock your potential with NivanFX Mentorships. Learn proven strategies and expert guidance to become a profitable forex trader. Join our community today to start your journey toward financial success."/>
+                <meta name="keywords" content="Nivan Fx, Forex trading, Forex education, trading signals, Forex mentorship, Nivan FX, paid signals, free signals, trading programs, Forex growth, trading mentorships" />
+            </Helmet>
+            <div className="mentorships container" ref={ mentorshipMainRef }>
+                <NavBar white = { true }/>
+                <MobileNav />
+                <MentorshipsMain />
+                <Footer />
+            </div>
+        </>
     )
 }
 

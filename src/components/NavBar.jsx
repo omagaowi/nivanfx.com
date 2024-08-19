@@ -59,40 +59,46 @@ const NavBar = ({white}) => {
             <div className="right-side">
                 <ul>
                     <li>
-                        <a onClick={()=>{
+                        <NavLink to = { '/' } onClick={(e)=>{
+                            e.preventDefault()
                             startTransition(()=>{
                                 navigate('/')
                             })
-                        }}>Home</a>
-                        <a onClick={()=>{
+                        }}>Home</NavLink>
+                         <NavLink to = { '/' } onClick={(e)=>{
+                              e.preventDefault()
                             startTransition(()=>{
                                 navigate('/')
                             })
-                        }}>Home</a>
+                        }}>Home</NavLink>
                     </li>
                     <li>
-                        <a onClick={()=>{
+                        <NavLink to = { '/services' } onClick={(e)=>{
+                            e.preventDefault()
                             startTransition(()=>{
                                 navigate('/services')
                             })
-                        }}>Services</a>
-                        <a onClick={()=>{
+                        }}>Services</NavLink>
+                       <NavLink to = { '/services' } onClick={(e)=>{
+                            e.preventDefault()
                             startTransition(()=>{
                                 navigate('/services')
                             })
-                        }}>Services</a>
+                        }}>Services</NavLink>
                     </li>
                     <li>
-                        <a onClick={()=>{
+                        <NavLink to={ '/contact' } onClick={(e)=>{
+                            e.preventDefault()
                             startTransition(()=>{
                                 navigate('/contact')
                             })
-                        }}>Contact</a>
-                        <a onClick={()=>{
+                        }}>Contact</NavLink>
+                       <NavLink to={ '/contact' } onClick={(e)=>{
+                            e.preventDefault()
                             startTransition(()=>{
                                 navigate('/contact')
                             })
-                        }}>Contact</a>
+                        }}>Contact</NavLink>
                     </li>
                     <li>
                         <a href='https://one.exnesstrack.net/a/yke3rzwi9i' target='default'>Broker</a>
