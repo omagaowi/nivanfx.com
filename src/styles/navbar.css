@@ -83,7 +83,8 @@ nav ul li{
     margin-top: 7px;
 }
 
-nav ul li a{
+nav ul li a,
+nav ul li p{
     color: #d3d3d3;
     text-decoration: none;
     font-size: 16px;
@@ -97,7 +98,8 @@ nav ul li:hover a:first-child{
    margin-top: -25px;
 }
 
-nav ul li:hover a:last-child{
+nav ul li:hover a:last-child,
+nav ul li:hover p{
    color: #8B00FF;
    font-weight: bold;
  }
@@ -114,7 +116,7 @@ nav.white .logo img{
     height: 70px; */
 }
 
-nav.white a{
+nav.white a, nav .white p{
     color: #000;
 }
 

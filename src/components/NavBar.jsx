@@ -65,12 +65,12 @@ const NavBar = ({white}) => {
                                 navigate('/')
                             })
                         }}>Home</NavLink>
-                         <NavLink to = { '/' } onClick={(e)=>{
+                         <p onClick={(e)=>{
                               e.preventDefault()
                             startTransition(()=>{
                                 navigate('/')
                             })
-                        }}>Home</NavLink>
+                        }}>Home</p>
                     </li>
                     <li>
                         <NavLink to = { '/services' } onClick={(e)=>{
@@ -79,12 +79,12 @@ const NavBar = ({white}) => {
                                 navigate('/services')
                             })
                         }}>Services</NavLink>
-                       <NavLink to = { '/services' } onClick={(e)=>{
+                       <p onClick={(e)=>{
                             e.preventDefault()
                             startTransition(()=>{
                                 navigate('/services')
                             })
-                        }}>Services</NavLink>
+                        }}>Services</p>
                     </li>
                     <li>
                         <NavLink to={ '/contact' } onClick={(e)=>{
@@ -93,16 +93,18 @@ const NavBar = ({white}) => {
                                 navigate('/contact')
                             })
                         }}>Contact</NavLink>
-                       <NavLink to={ '/contact' } onClick={(e)=>{
+                       <p onClick={(e)=>{
                             e.preventDefault()
                             startTransition(()=>{
                                 navigate('/contact')
                             })
-                        }}>Contact</NavLink>
+                        }}>Contact</p>
                     </li>
                     <li>
                         <a href='https://one.exnesstrack.net/a/yke3rzwi9i' target='default'>Broker</a>
-                        <a href='https://one.exnesstrack.net/a/yke3rzwi9i' target='default'>Broker</a>
+                        <p onClick={ () => {
+                            window.location.href = 'https://one.exnesstrack.net/a/yke3rzwi9i'
+                        } } target='default'>Broker</p>
                     </li>
                 </ul>
             </div>
