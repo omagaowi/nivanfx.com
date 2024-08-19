@@ -26,7 +26,7 @@ const MentorshipsMain = () => {
                     <h1 className='no-opacity'>Nivan Fx Free Starters Guide!</h1>
                     <p className='no-opacity'>Ready to embark on your journey into the world of forex trading? Start with our comprehensive beginner's guide, designed to equip you with essential knowledge and strategies to navigate the markets with confidence. Get access to expert insights, practical tips, and valuable resources—all for free.</p>
                     <div className="buttons no-opacity">
-                        <button><a href="/NivanFx Starters Guide.pdf" download>Download Guide</a></button>
+                        <button><a href="/NIVAN_FX_OFFICIAL_STARTERS_GUIDE.pdf" download>Download Guide</a></button>
                     </div>
                 </div>
             </div>

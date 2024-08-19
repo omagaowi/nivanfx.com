@@ -58,6 +58,13 @@
     clip-path: polygon(24% 0, 100% 0, 100% 100%, 0 100%, 0 24%);
 }
 
+@media screen and (max-width: 895px) {
+   .service-hero .service-hero-text{
+        position: relative;
+        left: 5%;
+    }
+}
+
 
 @media screen and (max-width: 670px){
     .service-hero{
