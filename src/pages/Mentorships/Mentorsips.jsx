@@ -51,6 +51,7 @@ const Mentorships = () => {
                 <meta name="google-site-verification" content="FGBWXtAisFxV7yCU1EgR7ozrntCKPJccWCr2GhnJq0M" />
                 <meta name="description" content="Unlock your potential with NivanFX Mentorships. Learn proven strategies and expert guidance to become a profitable forex trader. Join our community today to start your journey toward financial success."/>
                 <meta name="keywords" content="Nivan Fx, Forex trading, Forex education, trading signals, Forex mentorship, Nivan FX, paid signals, free signals, trading programs, Forex growth, trading mentorships" />
+                <link rel="canonical" href="https://www.nivanfx.com/services/mentorships" />
             </Helmet>
             <div className="mentorships container" ref={ mentorshipMainRef }>
                 <NavBar white = { true }/>
