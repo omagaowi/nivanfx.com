@@ -29,6 +29,7 @@ const Signals = () => {
        <>
         <Helmet>
                 <title>Trading Signals | Nivan FX</title>
+                <meta name="google-site-verification" content="FGBWXtAisFxV7yCU1EgR7ozrntCKPJccWCr2GhnJq0M" />
                 <meta name="description" content="TMaximize your trading potential with NivanFX's free and paid forex signals. Get timely, accurate market insights and signals designed to boost your profitability, whether you're a beginner or an experienced trader."/>
                 <meta name="keywords" content="Nivan Fx, Forex trading, Forex education, trading signals, Forex mentorship, Nivan FX, paid signals, free signals, trading programs, Forex growth" />
         </Helmet>

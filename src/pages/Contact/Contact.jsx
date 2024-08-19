@@ -29,6 +29,7 @@ const Contact = () => {
             <Helmet>
                 <title>Contact Us | Nivan FX</title>
                 <meta name="description" content="Have questions or need assistance? Reach out to Nivan FX, the leading platform dedicated to empowering and educating forex traders. Whether you're a beginner looking to learn the basics or an experienced trader seeking advanced strategies, our team is here to help. Contact us today for personalized support, expert advice, and answers to all your forex trading inquiries. Let Nivan FX guide you on your journey to becoming a successful trader." />
+                <meta name="google-site-verification" content="FGBWXtAisFxV7yCU1EgR7ozrntCKPJccWCr2GhnJq0M" />
             </Helmet>
             <div className="container contact-container">
                 <NavBar white = { false }/>
