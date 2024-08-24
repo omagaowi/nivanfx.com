@@ -111,19 +111,19 @@
 }
 
 
-.card-stuff .icon{
+.service-main .card-stuff .icon{
     position: relative;
     top: 60px;
     left: 30px;
 }
 
-.card-stuff .icon svg{
+.service-main .card-stuff .icon svg{
     width: 50px;
     height: 50px;
     color: #8d896f;
 }
 
-.card-stuff .sub-heading{
+.service-main .card-stuff .sub-heading{
    position: relative;
    top: 80px;
    left: 30px;
@@ -133,13 +133,13 @@
    color: #2f2f2f;
 }
 
-.card-stuff h1{
+.service-main .card-stuff h1{
     color: #343434;
     font-size: 36px;
     transition: all 0.5s ease;
 }
 
-.card-stuff .text{
+.service-main .card-stuff .text{
     width: 80%;
     position: relative;
     top: 100px;
@@ -148,7 +148,7 @@
     transition: all 0.5s ease;
 }
 
-.card-stuff p{
+.service-main .card-stuff p{
     width: 100%;
     font-weight: 100;
     color: #6a6a6a;
@@ -156,7 +156,7 @@
     transition: all 0.5s ease;
 }
 
-.card-stuff .link{
+.service-main .card-stuff .link{
     position: relative;
     top: 120px;
     left: 30px;
@@ -169,7 +169,7 @@
     transition: all 0.5s ease;
 }
 
-.card-stuff .link svg{
+.service-main .card-stuff .link svg{
     width: 25px;
     height: 25px;
     transition: all 0.5s ease;
@@ -187,47 +187,47 @@
     top: 110px;
 }
 
-.card-stuff.push{
+.service-main .card-stuff.push{
     background: linear-gradient(180deg, rgb(0, 0, 0, .6) 5%, rgb(0, 0, 0))
 }
 
-.card-stuff.push .icon svg{
+.service-main .card-stuff.push .icon svg{
     display: none;
 }
 
-.card-stuff.push .sub-heading{
+.service-main .card-stuff.push .sub-heading{
     top: 170px;
 }
 
-.card-stuff.push h1{
+.service-main .card-stuff.push h1{
     color: #fff;
 }
 
-.card-stuff.push .text{
+.service-main .card-stuff.push .text{
     top: 190px;
 }
 
-.card-stuff.push .text p{
+.service-main .card-stuff.push .text p{
     color: #a4a4a4;
 }
 
-.card-stuff.push .link{
+.service-main .card-stuff.push .link{
     top: 210px;
     width: 35px;
     height: 35px;
 }
 
-.card-stuff .link:hover{
+.service-main .card-stuff .link:hover{
     background: blue;
     cursor: pointer;
     color: #fff;
 }
 
-.card-stuff .link:hover svg{
+.service-main .card-stuff .link:hover svg{
     color: #fff;
 }
 
-.card-stuff.push svg{
+.service-main .card-stuff.push svg{
     width: 25px;
     margin-top: 5px;
     height: 25px;
@@ -235,16 +235,16 @@
 }
 
 
-.card.portfolio .card-stuff.push .sub-heading{
+.service-main .card.portfolio .card-stuff.push .sub-heading{
     top: 155px;
 }
 
 
-.card.portfolio .card-stuff.push .text{
+.service-main .card.portfolio .card-stuff.push .text{
     top: 170px;
 }
 
-.card.portfolio .card-stuff.push .link{
+.service-main .card.portfolio .card-stuff.push .link{
     top: 190px;
 }
 

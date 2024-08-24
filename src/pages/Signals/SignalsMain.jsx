@@ -4,6 +4,7 @@ import Graphs from '../../assets/graphs.jpeg'
 import FreeImage from '../../assets/free_signal.jpg'
 import PaidImage from '../../assets/paid_signal.jpg'
 import { useRef } from "react"
+import { useNavigate } from "react-router"
 
 let freeSignalRef
 let paidSignalRef
@@ -11,6 +12,7 @@ const SignalsMain = () => {
     freeSignalRef = useRef(false)
     paidSignalRef = useRef(false)
 
+    const navigate = useNavigate()
 
     const signalsData = {
         service: "SIGNALS",
@@ -30,8 +32,10 @@ const SignalsMain = () => {
                    <div className="part">
                      <h3 className="no-opacity">FREE SIGNALS</h3>
                      <p className="no-opacity">Harness real-time insights and expert analysis to make informed decisions and maximize your trading success. Join our community today and start receiving free signals on our <b>Telgram</b> and <b>Discord</b> platfroms or gain more insights with our <a href="#premuim_signals">premuim signals</a>.</p>
-                     <div className="buttons no-opacity">
-                        <button>Join now</button>
+                     <div className="buttons no-opacity"> 
+                        <button onClick={(e) => {
+                            window.location.href = 'https://t.me/Nivan_fxcommunity'
+                        }}>Join now</button>
                      </div>
                    </div>
                 </div>
@@ -49,8 +53,8 @@ const SignalsMain = () => {
                      <p className="no-opacity">Access Premium Signals for Unparalleled Insights and Profitability. With Nivan FX's Premium Signals, get exclusive access to advanced analytics, expert recommendations, and precise market forecasts. Gain access to our pro trading signals at 50% discount of <b style={{color: "#8B00FF"}}>$15/mo</b>.</p>
                      <div className="buttons no-opacity">
                         <button onClick={ () => {
-                            window.location.href = 'https://nivan-api.onrender.com/redirect/payment/signals'
-                        } }><a href="https://nivan-api.onrender.com/redirect/payment/signals">Join Now</a></button>
+                           navigate(`/account/payment/PLN_d87553b9gq8mhde`)
+                        } }>Join Now</button>
                      </div>
                    </div>
                 </div>

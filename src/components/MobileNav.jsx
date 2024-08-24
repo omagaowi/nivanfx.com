@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router'
 import '../styles/mobileNav.css'
 import { navbarRef } from './NavBar.jsx'
 
+
 let toggleMobileNav 
 
 const MobileNav = () => {

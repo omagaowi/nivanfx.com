@@ -1,12 +1,16 @@
 import './plans.css'
 
+import { useNavigate } from 'react-router'
+
 const Plans = () => {
+    const navigate = useNavigate()
     const plansArray = [
         {
             plan: "Intermediate",
             price_dollar: 25,
             price_naira: "50, 000",
             price_og : 50,
+            code: 'PLN_cu7k3ly30mwip4g',
             features: [
                 "Access to live training sessions with tutors (twice a week).",
                 "Access to premium trading signals.",
@@ -20,6 +24,7 @@ const Plans = () => {
             price_dollar: 50,
             price_naira: "100, 000",
             price_og : 100,
+            code: 'PLN_w9fggz2ezfe44u9',
             features: [
                 "Access to all intermediate features plus:",
                 "Mastering fundamental analysis",
@@ -33,6 +38,7 @@ const Plans = () => {
             price_dollar: 100,
             price_naira: "200, 000",
             price_og : 200,
+            code: 'PLN_omp4zkk597lbobe',
             features: [
                 "Access to all profitable features plus:",
                 "One on one with Nivan Fx.",
@@ -79,8 +85,8 @@ const Plans = () => {
                         }
                     </div>
                     <button onClick={ (e) => {
-                        window.location.href = plan.link
-                    } }><a href={ plan.link }>Enroll Now</a></button>
+                        navigate(`/account/payment/${plan.code}`)
+                    } }>Enroll Now</button>
                 </div>
         )
     }

@@ -1,0 +1,38 @@
+.terms-conditions-container{
+    width: 100vw;
+    min-height: calc(100vh);
+    height: auto;
+    /* background: red; */
+    /* background: #000; */
+    position: relative;
+    background-image: url('/firstbg.jpg');
+    background-size: cover;
+}
+
+.terms-conditions-main{
+    width: 100vw;
+    min-height: calc(100vh);
+    height: auto;
+    background: linear-gradient(90deg, rgb(255, 255, 255, .5) 10%, #fff);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.terms-conditions-window{
+    width: 97vw;
+    max-width: 500px;
+    height: auto;
+    min-height: 95vh;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15),
+    0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.terms-conditions-window img{
+    width: 100px;
+    height: 100px;
+}
