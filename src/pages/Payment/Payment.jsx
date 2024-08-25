@@ -5,6 +5,7 @@ import PaymentMain from "./PaymentMain.jsx"
 import { useEffect } from "react"
 import { navAnimationsDesktop } from "../../animations/navAnimations.js"
 import { navbarRef } from "../../components/NavBar.jsx"
+import MobileNav from "../../components/MobileNav.jsx"
 
 
 const PaymentPage = () => {
@@ -19,6 +20,7 @@ const PaymentPage = () => {
     return (
         <div className="payment-page-container container">
             <NavBar white={ true }/>
+            <MobileNav />
             <PaymentMain />
         </div>
     )

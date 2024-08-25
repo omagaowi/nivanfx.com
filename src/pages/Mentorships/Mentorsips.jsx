@@ -12,6 +12,7 @@ const Mentorships = () => {
     let rendered = false
     const mentorshipMainRef = useRef(false)
     useEffect(()=>{
+        sessionStorage.removeItem('formData')
         if(!rendered){
             navAnimationsDesktop()
             runMentorshipAnimations()

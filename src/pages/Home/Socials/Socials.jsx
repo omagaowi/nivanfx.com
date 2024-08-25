@@ -27,6 +27,7 @@ const Socials = () => {
                         Join Telegram
                     </a>
                 </button>
+                
             </div>
         </div>
     )

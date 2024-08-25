@@ -14,9 +14,11 @@ const NavBar = ({white}) => {
     const navigate = useNavigate()
 
     if(isPending){
+       if(navbarRef){
         if(navbarRef.current){
             navbarRef.current.querySelector('.loading').classList.add('show')
         }
+       }
     }else{
         if(navbarRef.current){
             navbarRef.current.querySelector('.loading').classList.remove('show')

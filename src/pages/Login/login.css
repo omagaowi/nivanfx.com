@@ -85,3 +85,13 @@
     pointer-events: none;
     opacity: .7;
 }
+.login-main .resend{
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
+}
+
+.login-main .resend b:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}

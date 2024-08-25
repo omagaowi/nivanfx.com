@@ -11,14 +11,16 @@ const HeroSection = () => {
     const navigate = useNavigate()
     const [isPending, startTransition] = useTransition()
     if(isPending){
-        if(navbarRef.current){
+        if(navbarRef){
             if(navbarRef.current){
                 navbarRef.current.querySelector('.loading').classList.add('show')
             }
         }
     }else{
-        if(navbarRef.current){
-            navbarRef.current.querySelector('.loading').classList.remove('show')
+        if(navbarRef){
+            if(navbarRef.current){
+                navbarRef.current.querySelector('.loading').classList.remove('show')
+            }
         }
     }
     return (

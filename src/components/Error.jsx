@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import '../styles/error.css'
 
-const Error = ({ error, msg, setError }) => {
+const Error = ({ error, msg, status, setError }) => {
     console.log(error)
     useEffect(() => {
         if(error){
@@ -12,7 +12,7 @@ const Error = ({ error, msg, setError }) => {
         }
     }, [error])
     return (
-        <div className={`error-component ${error? 'show': ''}`}>
+        <div className={`error-component ${error? 'show': ''} ${status? 'success' : '' }`}>
             <div className="close-error">
 
             </div>

@@ -262,6 +262,9 @@
     display: none;
 }
 
+.personal-details-container nav{
+   background: transparent;
+}
 
 .tel-window .load{
     width: 100%;

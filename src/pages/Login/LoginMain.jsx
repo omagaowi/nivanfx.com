@@ -1,8 +1,9 @@
 import { navbarRef } from "../../components/NavBar"
 import { useEffect, useRef, useState, useTransition } from "react"
 import { redirect, useNavigate } from "react-router"
-import { root } from "../../utils/authStore.js"
+import { root, useAuthStore } from "../../utils/authStore.js"
 import Error from "../../components/Error.jsx"
+
 
 
 const LoginMain = () => {
@@ -11,6 +12,12 @@ const LoginMain = () => {
     const navigate = useNavigate()
     const [error, setError] = useState(false)
     const loginRef = useRef(false)
+
+    const {authRedirect, setAuthRedirect} = useAuthStore((state) => ({
+        authRedirect: state.authRedirect,
+        setAuthRedirect: state.setAuthRedirect
+    }))
+
 
     if(isPending){
         if(navbarRef){
@@ -50,7 +57,7 @@ const LoginMain = () => {
                         email: email,
                         isVerified: false,
                         login: data.data,
-                        redirect: false
+                        redirect: authRedirect
                     }))
                     navbarRef.current.querySelector('.loading').classList.remove('show')
                     loginRef.current.classList.add('load');
@@ -62,7 +69,7 @@ const LoginMain = () => {
                         email: email,
                         isVerified: false,
                         login: false,
-                        redirect: false
+                        redirect: authRedirect
                     }))
                     navbarRef.current.querySelector('.loading').classList.remove('show')
                     loginRef.current.classList.add('load');

@@ -14,6 +14,7 @@ import { Helmet } from "react-helmet"
 const Home = () => {
     let rendered = false
     useEffect(()=>{
+        sessionStorage.removeItem('formData')
         if(!rendered){
             navAnimationsDesktop()
             runHomeAnimations(heroRef)

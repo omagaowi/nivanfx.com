@@ -13,6 +13,7 @@ import { Helmet } from "react-helmet"
 const ServicesPage = () => {
     let rendered = false
     useEffect(()=>{
+        sessionStorage.removeItem('formData')
         if(!rendered){
             navAnimationsDesktop()
             setTimeout(()=>{

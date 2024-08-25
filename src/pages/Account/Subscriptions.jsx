@@ -7,13 +7,15 @@ import RoundLoader from '../../components/RoundLoader'
 
 const Subscriptions = () => {
 
-    const { token, user, updateToken, updateUser, tokenError, updateTokenError } = useAuthStore((state) => ({
+    const { token, user, updateToken, updateUser, authRedirect, setAuthRedirect, tokenError, updateTokenError } = useAuthStore((state) => ({
         token: state.token,
         user: state.user,
         updateUser: state.updateUser,
         updateToken: state.updateToken,
         tokenError: state.tokenError,
-        updateTokenError: state.updateTokenError
+        updateTokenError: state.updateTokenError,
+        authRedirect: state.authRedirect,
+        setAuthRedirect: state.setAuthRedirect
     }))
 
 
@@ -39,6 +41,7 @@ const Subscriptions = () => {
             }else{
                 setError(prev => true)
                 if(data.msg == 'Invalid Token'){
+                    setAuthRedirect(false)
                     updateUser(false)
                     updateToken(false)
                     localStorage.removeItem('nivanUserData')

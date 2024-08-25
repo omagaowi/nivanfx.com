@@ -18,11 +18,19 @@ const HomeMain = () => {
             const scrollPosition = window.scrollY
             const nintyPercent = (90 / 100) * window.innerHeight
             if(scrollPosition >= nintyPercent){
-                 navbarRef.current.classList.add("white");
-              navbarRef.current.querySelector(".logo img").src = '/logo.png'
+                if(navbarRef){
+                    if(navbarRef.current){
+                        navbarRef.current.classList.add("white");
+                        navbarRef.current.querySelector(".logo img").src = '/logo.png'
+                    }
+                }
             }else{
-             navbarRef.current.classList.remove("white");
-             navbarRef.current.querySelector(".logo img").src = '/logo2.png'
+            if(navbarRef){
+                if(navbarRef.current){
+                     navbarRef.current.classList.remove("white");
+                     navbarRef.current.querySelector(".logo img").src = '/logo2.png'
+                }
+            }
             }
         // }
     }
@@ -31,10 +39,18 @@ const HomeMain = () => {
         const scrollPosition = window.scrollY
         const nintyPercent = (90 / 100) * window.innerHeight
             if(scrollPosition >= nintyPercent){
-                 navbarRef.current.classList.add("white");
+               if(navbarRef){
+                    if(navbarRef.current){
+                        navbarRef.current.classList.add("white");
+                    }
+                }
             //   navbarRef.current.querySelector(".logo img").src = localStorage.getItem('navLogo')? localStorage.getItem('navLogo'): 'http://localhost:3000/logo' ;
             }else{
-             navbarRef.current.classList.remove("white");
+                if(navbarRef){
+                    if(navbarRef.current){
+                        navbarRef.current.classList.remove("white");
+                    }
+                }
             //  navbarRef.current.querySelector(".logo img").src =localStorage.getItem('navLogo2')? localStorage.getItem('navLogo2'): 'http://localhost:3000/logo2';
             }
         return () => {

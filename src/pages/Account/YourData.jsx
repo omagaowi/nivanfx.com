@@ -3,21 +3,28 @@ import fetchUserData from "../../utils/fetchUserData";
 import { root, useAuthStore, apiKeys } from "../../utils/authStore.js";
 import RoundLoader from "../../components/RoundLoader.jsx";
 import { navbarRef } from "../../components/NavBar.jsx"
+import Error from "../../components/Error.jsx"
 
 const YourData = () => {
 
     const formRef = useRef(false)
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false)
-    const { token, user, updateUser, updateToken, updateTokenError } = useAuthStore((state) => ({
+    const [miniError, setMiniError] = useState(false)
+    const { token, user, updateToken, updateUser, authRedirect, setAuthRedirect, tokenError, updateTokenError } = useAuthStore((state) => ({
         token: state.token,
         user: state.user,
-        updateToken: state.updateToken,
         updateUser: state.updateUser,
-        updateTokenError: state.updateTokenError
+        updateToken: state.updateToken,
+        tokenError: state.tokenError,
+        updateTokenError: state.updateTokenError,
+        authRedirect: state.authRedirect,
+        setAuthRedirect: state.setAuthRedirect
     }))
 
+
     const [email, setEmail] = useState(user.email)
+    const [status, setStatus] = useState(false)
     const [name, setName] = useState(user.name)
     const [phone, setPhone] = useState(user.phone)
     const [telegram, setTelegram] = useState(user.telegram)
@@ -37,12 +44,13 @@ const YourData = () => {
                 if(data.msg == 'Invalid Token'){
                   updateUser(false)
                   updateToken(false)
+                  setAuthRedirect(false)
                   localStorage.removeItem('nivanUserData')
                   updateTokenError(true)
                 }
             }
         }).catch((err) => {
-            console.log(err)
+            console.log(err)    
             setLoading(prev => false)
             setError(prev => true)
         })
@@ -79,8 +87,9 @@ const YourData = () => {
 
     return (
         <div className="account-data">
+             <Error error={ miniError ? true: false } status = { status } msg = { miniError } setError = { setMiniError }/>
             {
-                loading? (
+                loading? (  
                     <RoundLoader />
                 ):(
                     !error? (
@@ -92,22 +101,31 @@ const YourData = () => {
                                 }
                             }
                             editData().then((data) => {
+                                if(navbarRef){
+                                    if(navbarRef.current){
+                                        navbarRef.current.querySelector('.loading').classList.remove('show')
+                                    }
+                                }
                                 if(data.status){
                                     updateUser(data.data)
                                     updateToken(data.token)
                                     localStorage.setItem('nivanUserData', JSON.stringify({token: data.token }))
+                                    setMiniError(prev => 'Data Edited Successfully!')
+                                    setStatus(prev => true)
                                 }else{
+                                    setStatus(prev => false)
                                     if(data.msg == 'Invalid Token'){
                                         updateUser(false)
                                         updateToken(false)
+                                        setAuthRedirect(false)
                                         localStorage.removeItem('nivanUserData')
                                         updateTokenError(true)
                                     }else{
-                                        alert('an error occurred!')
+                                        setMiniError(prev => 'An error occurred!')
                                     }
                                 }
                             }).catch((err)=>{
-                                alert('an error occurred!')
+                                setMiniError(prev => 'An error occurred!')
                             })
                         } }>
                             <div className="input-field">

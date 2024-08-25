@@ -3,9 +3,10 @@ import './personalDetails.css'
 import { apiKeys, root, useAuthStore } from '../../utils/authStore.js'
 import NavBar from '../../components/NavBar.jsx'
 import { navbarRef } from '../../components/NavBar.jsx'
-import { navAnimationsDesktop } from '../../animations/navAnimations'
+import { navAnimationsDesktop } from '../../animations/navAnimations.js'
 import { useNavigate } from 'react-router'
 import Error from '../../components/Error.jsx'
+import MobileNav from '../../components/MobileNav.jsx'
 
 
 const PersonalDetailsPage = () => {
@@ -158,7 +159,7 @@ const PersonalDetailsPage = () => {
                         sessionStorage.removeItem('formData')
                         if(formData.redirect){
                             startTransition(()=>{
-                                navigate(`/${redirect}`)
+                                navigate(formData.redirect)
                             })
                         }else{
                             startTransition(()=>{
@@ -187,6 +188,7 @@ const PersonalDetailsPage = () => {
     return (
         <div className="personal-details-container container">
             <NavBar white={ true }/>
+            <MobileNav />
             <Error error={ error ? true: false } msg = { error } setError = { setError }/>
              {/* <img src="/images/bg.jpg" alt="" loading="lazy" class="bg" /> */}
             <div className="main">

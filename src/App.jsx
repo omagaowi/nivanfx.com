@@ -50,7 +50,7 @@ function App() {
           setAlert(false)
         }, 1000)
     }, function(err) {
-        console.error('Could not copy text: ', err);
+        // console.error('Could not copy text: ', err);
     });
   }
 
@@ -65,18 +65,18 @@ function App() {
   useEffect(()=> {
     if(token){
       fetchUserData(token).then((data)=>{
-        console.log(data)
         if(data.status){
           updateUser(data.data)
         }else{
-          updateUser(false)
-          updateToken(false)
-          localStorage.removeItem('nivanUserData')
+          if(data.msg == 'Invalid Token'){
+              updateUser(false)
+              updateToken(false)
+              localStorage.removeItem('nivanUserData')
+              updateTokenError(true)
+          }
         }
       }).catch(err => {
-          updateUser(false)
-          updateToken(false)
-          localStorage.removeItem('nivanUserData')
+         
       })
     }
   },[])

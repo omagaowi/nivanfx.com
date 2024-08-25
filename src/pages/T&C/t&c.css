@@ -9,6 +9,40 @@
     background-size: cover;
 }
 
+.terms-conditions-container nav{
+    z-index: 0;
+}
+
+.terms-conditions-window .reminder{
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    color: #fff;
+    background: #004800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease;
+}
+
+.terms-conditions-window .reminder p{
+   text-align: center;
+}
+
+.terms-conditions-window .reminder.remove{
+    transform: translateY(-30px);
+}
+
+.terms-conditions-container nav.white{
+    background: transparent;
+}
+
+.terms-conditions-container nav .logo,
+.terms-conditions-container nav .hamburger,
+.terms-conditions-container nav .right-side{
+    display: none;
+}
+
 .terms-conditions-main{
     width: 100vw;
     min-height: calc(100vh);
@@ -20,19 +54,92 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 0;
 }
 
 .terms-conditions-window{
     width: 97vw;
-    max-width: 500px;
-    height: auto;
-    min-height: 95vh;
+    max-width: 550px;
+    height: 95vh;
     background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15),
     0 3px 6px rgba(0, 0, 0, 0.15);
+    overflow-x: hidden;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.terms-conditions-container h1{
+    margin-bottom: 14px;
 }
 
 .terms-conditions-window img{
     width: 100px;
     height: 100px;
+    margin-top: 10px;
 }
+
+.terms-conditions-window .section,
+.terms-conditions-window .sub-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+}
+
+.terms-conditions-window .section{
+    margin-bottom: 20px;
+    width: 97%;
+}
+
+.terms-conditions-window .sub-section{
+    margin-top: 7px;
+    width: 100%;
+}
+
+
+.terms-conditions-window .section h3{
+    color: #3c006c;
+}
+
+.terms-conditions-window .section h4{
+    color: #424242;
+}
+
+
+.terms-conditions-window li  p{
+    font-size: 12px;
+    text-align: justify;
+    color: #272727;
+}
+
+.terms-conditions-window .reason{
+    font-size: 10px;
+    margin-left: 4px;
+    margin-top: 4px;
+}
+
+.terms-conditions-window .buttons{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.terms-conditions-window .buttons button{
+    width: 80px;
+    height: 34px;
+    border: none;
+    background: #004800;
+    outline: none;
+    margin: 0px 10px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.terms-conditions-window .buttons button:nth-child(2){
+    background: #970000;
+}
+

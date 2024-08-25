@@ -48,12 +48,17 @@ const CardComponent = ({card}) => {
     const navigate = useNavigate()
 
     if(isPending){
-        if(navbarRef.current){
-            navbarRef.current.querySelector('.loading').classList.add('show')
+        if(navbarRef){
+            if(navbarRef.current){
+                console.log('load')
+                navbarRef.current.querySelector('.loading').classList.add('show')
+            }
         }
     }else{
-        if(navbarRef.current){
-            navbarRef.current.querySelector('.loading').classList.remove('show')
+        if(navbarRef){
+            if(navbarRef.current){
+                navbarRef.current.querySelector('.loading').classList.remove('show')
+            }
         }
     }
 

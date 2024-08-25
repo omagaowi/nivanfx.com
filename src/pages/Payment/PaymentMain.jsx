@@ -1,21 +1,28 @@
 import { useEffect, useState } from "react";
-import { useAuthStore, root, apiKeys } from "../../utils/authStore";
-import { navbarRef } from "../../components/NavBar";
-import RoundLoader from "../../components/RoundLoader";
+import { useAuthStore, root, apiKeys } from "../../utils/authStore.js";
+import { navbarRef } from "../../components/NavBar.jsx";
+import Error from "../../components/Error.jsx"
+import RoundLoader from "../../components/RoundLoader.jsx"
+import { useNavigate } from "react-router"
 
 
 const PaymentMain = () => {
     const [plan, setPlan] = useState(false)
 
+    const navigate = useNavigate()
 
-    const { token, updateToken, user, updateUser, tokenError, updateTokenError } = useAuthStore((state)=> ({
+
+    const { token, user, updateToken, updateUser, authRedirect, setAuthRedirect, tokenError, updateTokenError } = useAuthStore((state) => ({
         token: state.token,
-        updateToken: state.updateToken,
-        updateTokenError: state.updateTokenError,
-        tokenError: state.tokenError,
         user: state.user,
         updateUser: state.updateUser,
-      }))
+        updateToken: state.updateToken,
+        tokenError: state.tokenError,
+        updateTokenError: state.updateTokenError,
+        authRedirect: state.authRedirect,
+        setAuthRedirect: state.setAuthRedirect
+    }))
+
 
     const plans = [
         {
@@ -44,7 +51,7 @@ const PaymentMain = () => {
       const [data, setData] = useState(false)
       const [loading, setLoading] = useState(false)
 
-      const fetchSubs = () => {
+      const fetchSubs = (code) => {
         setLoading(prev => true)
         const headers = {
             'x_api_key': apiKeys.api,
@@ -65,6 +72,7 @@ const PaymentMain = () => {
                 setError(prev => true)
                 if(data.msg == 'Invalid Token'){
                     updateUser(false)
+                    setAuthRedirect(`/account/payment/${code}`)
                     updateToken(false)
                     localStorage.removeItem('nivanUserData')
                     updateTokenError(true)
@@ -77,7 +85,7 @@ const PaymentMain = () => {
         })
       }
 
-      console.log(data)
+    //   console.log(data)
 
       const processTransaction = async () => {
         const headers = {
@@ -98,13 +106,14 @@ const PaymentMain = () => {
 
       useEffect(()=>{
         const planCode = window.location.href.split('/')[5]
-        fetchSubs()
+        fetchSubs(planCode)
         setPlan(plans.filter(function(el){
             return el.planCode == planCode
         })[0])
       }, [])
     return (
         <div className="payment-page-main">
+            <Error error={ error ? true: false } msg = { error } setError = { setError }/>
             {
                 loading? (
                     <RoundLoader />
@@ -124,11 +133,6 @@ const PaymentMain = () => {
                                                         if(navbarRef.current){
                                                             navbarRef.current.querySelector('.loading').classList.add('show')
                                                         }  
-                                                        processTransaction().then((data)=>{
-                                                        window.location.href = data.data.authorization_url
-                                                        }).catch((error) => {
-                                                            
-                                                        })
                                                     }}>Cancel</button>
                                                 </>
                                             ):(
@@ -161,9 +165,27 @@ const PaymentMain = () => {
                                                                     navbarRef.current.querySelector('.loading').classList.add('show')
                                                                 }  
                                                                 processTransaction().then((data)=>{
-                                                                window.location.href = data.data.authorization_url
+                                                                    if(navbarRef.current){
+                                                                        navbarRef.current.querySelector('.loading').classList.remove('show')
+                                                                    }  
+                                                                if(data.status){
+                                                                    navigate(`/account/terms_and_conditions/?redirect=${data.data.authorization_url}`)
+                                                                }else{
+                                                                    if(data.msg == 'Invalid Token'){
+                                                                        updateUser(false)
+                                                                        updateToken(false)
+                                                                        localStorage.removeItem('nivanUserData')
+                                                                        updateTokenError(true)
+                                                                        setAuthRedirect(`/account/payment/${plan.code}`)
+                                                                    }else{
+                                                                        setError('An Error Occured!')
+                                                                    }
+                                                                }   
                                                                 }).catch((error) => {
-            
+                                                                    setError('An Error Occured!')
+                                                                    if(navbarRef.current){
+                                                                        navbarRef.current.querySelector('.loading').classList.remove('show')
+                                                                    } 
                                                                 })
                                                             }}>Confirm </button>
                                                          </>

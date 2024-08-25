@@ -6,6 +6,7 @@ import { navAnimationsDesktop } from "../../animations/navAnimations.js"
 
 import './account.css'
 import AccountMain from "./AccountMain.jsx"
+import MobileNav from "../../components/MobileNav.jsx"
 
 const Account = () => {
     const [isPending, startTransition] = useTransition()
@@ -27,6 +28,7 @@ const Account = () => {
 
     useEffect(()=>{
         let rendered
+        sessionStorage.removeItem('formData')
         if(!rendered){
             navAnimationsDesktop()
             rendered = true
@@ -36,6 +38,7 @@ const Account = () => {
     return (
         <div className="account-page">
             <NavBar white={ true }/>
+            <MobileNav />
             <AccountMain />
         </div>
     )

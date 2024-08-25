@@ -8,6 +8,9 @@ import { redirect, useNavigate } from "react-router"
 import Error from "../../components/Error.jsx"
 
 import { root, apiKeys, useAuthStore } from "../../utils/authStore.js"
+import MobileNav from "../../components/MobileNav.jsx"
+import { OTPTemplateLoggedin, OTPTemplateLoggedOut } from "../../utils/emailTemps/otpTemp.js"
+
 
 
 
@@ -21,7 +24,7 @@ const VerifyOTPMain = () => {
 
     // console.log(user, token)
 
-    const [otp, setOTP] = useState(123456)
+    const [otp, setOTP] = useState(false)
     const [userInput, setUserInput] = useState()
     const [formData, setFormData] = useState(false)
     
@@ -72,6 +75,11 @@ const VerifyOTPMain = () => {
 
 
     const sendOTP = () => {
+        if(navbarRef){
+            if(navbarRef.current){
+                navbarRef.current.querySelector('.loading').classList.add('show')
+            }
+        }
         const OTP = Number(Date.now().toString().split('').splice(5, 6).join(''))
         const url = "https://api.brevo.com/v3/smtp/email";
         // Define the API key and email data
@@ -87,12 +95,12 @@ const VerifyOTPMain = () => {
             name: "Hello User",
             },
         ],
-        subject: "Hello User, Here is your 6 digit verification code",
-        htmlContent:
-            `<html><head></head><body><p>Your 6 digit code is ${OTP} </p></body></html>`,
+        subject: "Here is your 6 digit verification code",
+        htmlContent: JSON.parse(sessionStorage.getItem('formData')).login ? OTPTemplateLoggedin(otp, JSON.parse(sessionStorage.getItem('formData')).login, new Date().getFullYear()) : OTPTemplateLoggedOut(otp, new Date().getFullYear()),
+        textContent: `Your 6 digit verification code to activate your nivan fx account is ${otp}`
         };
         fetch(url, {
-            method: "POST",
+            method: "POST", 
             headers: {
               accept: "application/json",
               "api-key": apiKeys.email,
@@ -104,15 +112,26 @@ const VerifyOTPMain = () => {
             .then((data) => {
               setOTP(prev => OTP)
               formRef.current.classList.remove('load')
+              if(navbarRef){
+                if(navbarRef.current){
+                    navbarRef.current.querySelector('.loading').classList.remove('show')
+                }
+               }
             })
             .catch((error) => {
-                // sendOTP()
+                formRef.current.classList.remove('load')
+                if(navbarRef){
+                    if(navbarRef.current){
+                        navbarRef.current.querySelector('.loading').classList.remove('show')
+                    }
+                }
+
             });
     }
 
 
     useEffect(() => {
-        // sendOTP()
+        sendOTP()
         if(!JSON.parse(sessionStorage.getItem('formData'))){
             navigate('/account/login')
         }
@@ -130,22 +149,24 @@ const VerifyOTPMain = () => {
                     setLoading(true)
                     loginUser().then((data) => {
                         setLoading(false)
-                        console.log(data)
                         if(data.status){
                             localStorage.setItem('nivanUserData', JSON.stringify({token: data.data.token}))
                             updateUser(data.data)
                             updateToken(data.data.token)
                              sessionStorage.removeItem('formData')
                             startTransition(()=>{
-                                navigate('/account/me')
+                                if(formData.redirect){
+                                    navigate(formData.redirect)
+                                }else{
+                                    navigate('/account/me')
+                                }
                             })
                         }else{
-                            console.log('4456')
                             setError(prev => 'An Error Occured!')
                         }
                     }).catch((err) =>{
                         setLoading(false)
-                        console.log(err)
+                        // console.log(err)
                         setError(prev => 'An Error Occured!')
                     })
                 }else{
@@ -172,11 +193,11 @@ const VerifyOTPMain = () => {
     }
 
     return (
-        <div className="login-main" style={ loading? { pointerEvents: 'none', opacity: 0.7 } : {} }>
+        <div className="login-main" ref={ formRef } style={ loading? { pointerEvents: 'none', opacity: 0.7 } : {} }>
              <Error error={ error ? true: false } msg = { error } setError = { setError }/>
             <div className="login-content">
                {
-                otp && formData? (
+                formData? (
                     <form action="" className="login-form otp-form" onSubmit={ (e) => {
                         e.preventDefault()
                         const userOTP = e.target.otp.value
@@ -187,12 +208,12 @@ const VerifyOTPMain = () => {
                         <label htmlFor="">
                             <input type="number" value={ userInput } name = 'otp' placeholder="6 digit code" ref={ inputRef } onChange={(e) => {
                                 setUserInput(prev => e.target.value)
-                                if(e.target.value.length == 6){
-                                    e.target.setAttribute('readonly', 'readonly')
-                                    submitOTP(e.target.value, e.target);
-                                }else{
-                                    e.target.removeAttribute('readonly', 'readonly')
-                                }
+                                // if(e.target.value.length == 6){
+                                //     e.target.setAttribute('readonly', 'readonly')
+                                //     submitOTP(e.target.value, e.target);
+                                // }else{
+                                //     e.target.removeAttribute('readonly', 'readonly')
+                                // }
                             }}/>
                         </label>
                         <button>Continue</button>
@@ -201,6 +222,9 @@ const VerifyOTPMain = () => {
                     <></>
                 )
                }
+                <span className="resend">Didn't get an email <b onClick={ () => {
+                    sendOTP()
+                } }>Resend email ?</b></span>
             </div>
         </div>
     )
@@ -218,6 +242,7 @@ const VerifyOTPPage = () => {
     return (
         <div className="login-container container">
              <NavBar white = { true }/>
+             <MobileNav />
              <VerifyOTPMain />
         </div>  
     )

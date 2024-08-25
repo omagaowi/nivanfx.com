@@ -25,6 +25,7 @@
     font-size: 14px;
 }
 
+
 .error-component.show{
     transform: translate(-50%, 0px);
     opacity: initial;
@@ -33,4 +34,8 @@
 .error-component.remove{
     transform: translate(-50%, -10px);
     opacity: 0;
+}
+
+.error-component.success{
+    background: green;
 }

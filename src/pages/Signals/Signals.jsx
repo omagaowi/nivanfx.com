@@ -17,6 +17,7 @@ const Signals = () => {
             rendered = true
             navAnimationsDesktop()
             runSignalsAnimations()
+            sessionStorage.removeItem('formData')
             if(window.location.href.split('/')[4] == 'signals'){
                 window.scrollTo({
                     top: 0,
