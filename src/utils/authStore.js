@@ -1,9 +1,11 @@
 import { create } from "zustand";
-const root = `http://localhost:4000`;
+const root = import.meta.env.VITE_ROOT_URI;
 const apiKeys = {
   email: import.meta.env.VITE_EMAILAPI,
   api: import.meta.env.VITE_APIKEY,
 };
+
+
 
 const useAuthStore = create((set) => ({
   token: JSON.parse(localStorage.getItem("nivanUserData"))
