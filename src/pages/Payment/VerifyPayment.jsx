@@ -22,13 +22,13 @@ const VerifyPayment = () => {
         updateUser: state.updateUser,
       }))
 
-    const verify = async () => {
+    const verify = async (payRef) => {
         try {
             const headers = {
                 'x_api_key': apiKeys.api,
                 'Authorization': `Bearer ${token}`,
               }
-                const response = await fetch(`${root}/verify/${ref}`, {
+                const response = await fetch(`${root}/verify/${payRef}`, {
                     headers: headers,
                     method: 'GET'
                 })
@@ -41,8 +41,8 @@ const VerifyPayment = () => {
 
     useEffect(() => {
         setLoading(prev => true)
-        setRef(prev =>  window.location.href.split("&")[1]?  window.location.href.split("&")[1].split("=")[1] : '#invalid' )
-        verify().then((data)=>{
+        setRef(prev => window.location.href.split('=')[2]? window.location.href.split('=')[2] : '#invalid' )
+        verify(window.location.href.split('=')[2]).then((data)=>{
             if(data.status){
                 setLoading(prev => false)
                 setError(prev => false)
