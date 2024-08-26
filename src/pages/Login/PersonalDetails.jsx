@@ -160,6 +160,7 @@ const PersonalDetailsPage = () => {
                         if(formData.redirect){
                             startTransition(()=>{
                                 navigate(formData.redirect)
+                                
                             })
                         }else{
                             startTransition(()=>{
