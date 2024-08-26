@@ -1,9 +1,8 @@
 import { create } from "zustand";
 const root = `http://localhost:4000`;
 const apiKeys = {
-  email:
-    "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",
-  api: "nivan_3fe7ff54122f79596e91bdaea73372a09fab1e27",
+  email: import.meta.env.VITE_EMAILAPI,
+  api: import.meta.env.VITE_APIKEY,
 };
 
 const useAuthStore = create((set) => ({

@@ -1,0 +1,28 @@
+[33m40bbc39[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{0}: reset: moving to HEAD~1
+[33mbcce4c5[m HEAD@{1}: reset: moving to HEAD~1
+[33m8d5e94b[m HEAD@{2}: commit: pushes
+[33mbcce4c5[m HEAD@{3}: commit: signals button
+[33m40bbc39[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{4}: commit: update to guide
+[33m18df35b[m HEAD@{5}: commit: more seo
+[33ma073497[m HEAD@{6}: commit: more optimizations
+[33m788d477[m HEAD@{7}: commit: adding robots.txt
+[33m4c74b2c[m HEAD@{8}: commit: helmet
+[33m8b2e405[m HEAD@{9}: commit: more seo optimizations
+[33mb7b53a5[m HEAD@{10}: commit: google optimisations
+[33m811f706[m HEAD@{11}: commit: updating price list
+[33m9ee219b[m HEAD@{12}: commit: seo
+[33mb928ac3[m HEAD@{13}: commit: remove banner
+[33m9366d62[m HEAD@{14}: commit: adding vercel
+[33m7d415e6[m HEAD@{15}: commit: fix
+[33m3f14682[m HEAD@{16}: commit: fixes
+[33me7a1790[m HEAD@{17}: commit: ll fix
+[33m1d37dd4[m HEAD@{18}: commit: more optimizations
+[33mf0c9741[m HEAD@{19}: commit: performance optimizations
+[33mf0494b5[m HEAD@{20}: commit: fixed images issue
+[33mce022aa[m HEAD@{21}: commit: mobile nav fix
+[33m9f3c50f[m HEAD@{22}: commit: mobile nav
+[33m5750aee[m HEAD@{23}: commit: background image fix
+[33mbc73d29[m HEAD@{24}: commit: g
+[33mf665280[m HEAD@{25}: Branch: renamed refs/heads/main to refs/heads/main
+[33mf665280[m HEAD@{27}: commit: d
+[33m0daedc6[m HEAD@{28}: commit (initial): first commit

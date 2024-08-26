@@ -96,8 +96,8 @@ const VerifyOTPMain = () => {
             },
         ],
         subject: "Here is your 6 digit verification code",
-        htmlContent: JSON.parse(sessionStorage.getItem('formData')).login ? OTPTemplateLoggedin(otp, JSON.parse(sessionStorage.getItem('formData')).login, new Date().getFullYear()) : OTPTemplateLoggedOut(otp, new Date().getFullYear()),
-        textContent: `Your 6 digit verification code to activate your nivan fx account is ${otp}`
+        htmlContent: JSON.parse(sessionStorage.getItem('formData')).login ? OTPTemplateLoggedin(OTP, JSON.parse(sessionStorage.getItem('formData')).login, new Date().getFullYear()) : OTPTemplateLoggedOut(OTP, new Date().getFullYear()),
+        textContent: `Your 6 digit verification code to activate your nivan fx account is ${OTP}`
         };
         fetch(url, {
             method: "POST", 
