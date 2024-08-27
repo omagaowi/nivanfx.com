@@ -26,9 +26,9 @@ const VerifyPayment = () => {
         try {
             const headers = {
                 'x_api_key': apiKeys.api,
-                'Authorization': `Bearer ${token}`,
+                'Authorization': `Bearer ${JSON.parse(localStorage.getItem('nivanUserData')).token}`,
               }
-                const response = await fetch(`${root}/verify/${payRef}`, {
+                const response = await fetch(`${root}/verify/${window.location.href.split('=')[2]}`, {
                     headers: headers,
                     method: 'GET'
                 })
