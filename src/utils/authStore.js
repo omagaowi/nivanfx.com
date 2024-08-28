@@ -5,7 +5,7 @@ const apiKeys = {
   api: import.meta.env.VITE_APIKEY,
 };
 
-
+const paystack_secret = import.meta.env.VITE_PAYSTACK_SECRET;
 
 const useAuthStore = create((set) => ({
   token: JSON.parse(localStorage.getItem("nivanUserData"))
@@ -20,4 +20,20 @@ const useAuthStore = create((set) => ({
   setAuthRedirect: (data) => set((state) => ({ authRedirect: data }))
 }));
 
-export { root, apiKeys, useAuthStore }
+const fetchSubscription = async (subCode) => {
+   const headers = {
+        'Authorization': `Bearer ${paystack_secret}`
+    }
+  try{
+    const respnse = await fetch(`https://api.paystack.co/subscription/${subCode}/manage/link`, {
+      method: 'GET',
+      headers: headers
+    })
+    const data = await respnse.json()
+    return data
+  }catch(err){
+    throw err
+  }
+}
+
+export { root, apiKeys, useAuthStore, fetchSubscription }

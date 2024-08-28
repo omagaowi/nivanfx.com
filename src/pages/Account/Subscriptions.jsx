@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useTransition, } from 'react'
 import MentorshipImg from '../../assets/mentorship.png'
 import SignalsImg from '../../assets/signal.png'
-import { root, apiKeys, useAuthStore } from '../../utils/authStore'
-import RoundLoader from '../../components/RoundLoader'
-
+import { root, apiKeys, useAuthStore, fetchSubscription } from '../../utils/authStore.js'
+import RoundLoader from '../../components/RoundLoader.jsx'
+import { navbarRef } from '../../components/NavBar.jsx'
+import Error from '../../components/Error.jsx'
+import { useNavigate } from 'react-router'
 
 const Subscriptions = () => {
 
@@ -18,10 +20,27 @@ const Subscriptions = () => {
         setAuthRedirect: state.setAuthRedirect
     }))
 
-
+    const [isPending, startTransition] = useTransition()
     const [data, setData] = useState(false)
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [miniError, setMiniError] = useState(false)
+    const navigate = useNavigate()
+
+
+    if(isPending){
+        if(navbarRef){
+            if(navbarRef.current){
+                navbarRef.current.querySelector('.loading').classList.add('show')
+            }
+        }
+    }else{
+        if(navbarRef){
+            if(navbarRef.current){
+                navbarRef.current.querySelector('.loading').classList.remove('show')
+            }
+        }
+    }
 
     useEffect(() => {
         setLoading(prev => true)
@@ -56,6 +75,7 @@ const Subscriptions = () => {
 
     return (
         <div className="account-subscriptions">
+             <Error error={ miniError ? true: false } status = { false } msg = { miniError } setError = { setMiniError }/>
             {
                 loading? (
                     <RoundLoader />
@@ -66,7 +86,35 @@ const Subscriptions = () => {
                                <p>An Error Occured, Please try Again</p>
                             ):(
                                 <>
-                                     <div className="card">
+                                     <div className="card" onClick={()=>{
+                                        const subCode = data.mentorship? data.mentorship.subcription_code : false
+                                        if(subCode){
+                                            if(navbarRef){
+                                                if(navbarRef.current){
+                                                    navbarRef.current.querySelector('.loading').classList.add('show')
+                                                }
+                                            }
+                                            fetchSubscription(subCode).then((data)=>{
+                                                if(navbarRef){
+                                                    if(navbarRef.current){
+                                                        navbarRef.current.querySelector('.loading').classList.remove('show')
+                                                    }
+                                                }
+                                                window.location.href = data.data.link
+                                            }).catch((err)=>{
+                                                setMiniError('An Error Occurred')
+                                                if(navbarRef){
+                                                    if(navbarRef.current){
+                                                        navbarRef.current.querySelector('.loading').classList.remove('show')
+                                                    }
+                                                }
+                                            })
+                                        }else{
+                                            startTransition(()=>{
+                                               navigate(`/services/mentorships/#plans`)
+                                            })
+                                        }
+                                     }}>
                                         <div className="card-bg">
                                             <img src={ MentorshipImg } alt="" />
                                         </div>
@@ -83,7 +131,35 @@ const Subscriptions = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="card">
+                                    <div className="card" onClick={()=>{
+                                        const subCode = data.signals? data.signals.subcription_code : false
+                                        if(subCode){
+                                            if(navbarRef){
+                                                if(navbarRef.current){
+                                                    navbarRef.current.querySelector('.loading').classList.add('show')
+                                                }
+                                            }
+                                            fetchSubscription(subCode).then((data)=>{
+                                                if(navbarRef){
+                                                    if(navbarRef.current){
+                                                        navbarRef.current.querySelector('.loading').classList.remove('show')
+                                                    }
+                                                }
+                                                window.location.href = data.data.link
+                                            }).catch((err)=>{
+                                                setMiniError('An Error Occurred')
+                                                if(navbarRef){
+                                                    if(navbarRef.current){
+                                                        navbarRef.current.querySelector('.loading').classList.remove('show')
+                                                    }
+                                                }
+                                            })
+                                        }else{
+                                            startTransition(()=>{
+                                               navigate(`/services/signals#premuim_signals`)
+                                            })
+                                        }
+                                    } }>
                                         <div className="card-bg">
                                             <img src={ SignalsImg } alt="" />
                                         </div>

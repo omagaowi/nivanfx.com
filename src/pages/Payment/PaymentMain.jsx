@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useAuthStore, root, apiKeys } from "../../utils/authStore.js";
+import { useEffect, useState, useTransition } from "react";
+import { useAuthStore, root, apiKeys, fetchSubscription } from "../../utils/authStore.js";
 import { navbarRef } from "../../components/NavBar.jsx";
 import Error from "../../components/Error.jsx"
 import RoundLoader from "../../components/RoundLoader.jsx"
@@ -8,8 +8,23 @@ import { useNavigate } from "react-router"
 
 const PaymentMain = () => {
     const [plan, setPlan] = useState(false)
+    const [isPending, startTransition] = useTransition()
 
     const navigate = useNavigate()
+
+    if(isPending){
+        if(navbarRef){
+            if(navbarRef.current){
+                navbarRef.current.querySelector('.loading').classList.add('show')
+            }
+        }
+    }else{
+        if(navbarRef){
+            if(navbarRef.current){
+                navbarRef.current.querySelector('.loading').classList.remove('show')
+            }
+        }
+    }
 
 
     const { token, user, updateToken, updateUser, authRedirect, setAuthRedirect, tokenError, updateTokenError } = useAuthStore((state) => ({
@@ -50,6 +65,7 @@ const PaymentMain = () => {
       const [error, setError] = useState(false)
       const [data, setData] = useState(false)
       const [loading, setLoading] = useState(false)
+      const [miniError, setMiniError] = useState(false)
 
       const fetchSubs = (code) => {
         setLoading(prev => true)
@@ -114,7 +130,7 @@ const PaymentMain = () => {
       }, [])
     return (
         <div className="payment-page-main">
-            <Error error={ error ? true: false } msg = { error } setError = { setError }/>
+            <Error error={ miniError ? true: false } msg = { miniError } setError = { setMiniError }/>
             {
                 loading? (
                     <RoundLoader />
@@ -133,7 +149,22 @@ const PaymentMain = () => {
                                                     <button onClick={()=>{
                                                         if(navbarRef.current){
                                                             navbarRef.current.querySelector('.loading').classList.add('show')
-                                                        }  
+                                                        }
+                                                        fetchSubscription(data.mentorship.subcription_code).then((data)=>{
+                                                            if(navbarRef){
+                                                                if(navbarRef.current){
+                                                                    navbarRef.current.querySelector('.loading').classList.remove('show')
+                                                                }
+                                                            }
+                                                            window.location.href = data.data.link
+                                                        }).catch(err => {
+                                                            if(navbarRef){
+                                                                if(navbarRef.current){
+                                                                    navbarRef.current.querySelector('.loading').classList.remove('show')
+                                                                }
+                                                            }
+                                                           setMiniError('An Error Occurred!')
+                                                        })
                                                     }}>Cancel</button>
                                                 </>
                                             ):(
@@ -145,9 +176,29 @@ const PaymentMain = () => {
                                                             navbarRef.current.querySelector('.loading').classList.add('show')
                                                         }  
                                                         processTransaction().then((data)=>{
-                                                        window.location.href = data.data.authorization_url
+                                                            if(navbarRef.current){
+                                                                navbarRef.current.querySelector('.loading').classList.remove('show')
+                                                            }  
+                                                        if(data.status){
+                                                            startTransition(()=>{
+                                                                navigate(`/account/terms_and_conditions/?redirect=${data.data.authorization_url}`)
+                                                            })
+                                                        }else{
+                                                            if(data.msg == 'Invalid Token'){
+                                                                updateUser(false)
+                                                                updateToken(false)
+                                                                localStorage.removeItem('nivanUserData')
+                                                                updateTokenError(true)
+                                                                setAuthRedirect(`/account/payment/${plan.code}`)
+                                                            }else{
+                                                                setMiniError('An Error Occured!')
+                                                            }
+                                                        }   
                                                         }).catch((error) => {
-            
+                                                            setMiniError('An Error Occured!')
+                                                            if(navbarRef.current){
+                                                                navbarRef.current.querySelector('.loading').classList.remove('show')
+                                                            } 
                                                         })
                                                     }}>Confirm </button>
                                                 </>
@@ -170,20 +221,23 @@ const PaymentMain = () => {
                                                                         navbarRef.current.querySelector('.loading').classList.remove('show')
                                                                     }  
                                                                 if(data.status){
-                                                                    navigate(`/account/terms_and_conditions/?redirect=${data.data.authorization_url}`)
+                                                                    startTransition(()=>{
+                                                                        navigate(`/account/terms_and_conditions/?redirect=${data.data.authorization_url}`)
+                                                                    })
                                                                 }else{
                                                                     if(data.msg == 'Invalid Token'){
+                                                                        navbarRef.current.querySelector('.loading').classList.remove('show')
                                                                         updateUser(false)
                                                                         updateToken(false)
                                                                         localStorage.removeItem('nivanUserData')
                                                                         updateTokenError(true)
                                                                         setAuthRedirect(`/account/payment/${plan.code}`)
                                                                     }else{
-                                                                        setError('An Error Occured!')
+                                                                        setMiniError('An Error Occured!')
                                                                     }
                                                                 }   
                                                                 }).catch((error) => {
-                                                                    setError('An Error Occured!')
+                                                                    setMiniError('An Error Occured!')
                                                                     if(navbarRef.current){
                                                                         navbarRef.current.querySelector('.loading').classList.remove('show')
                                                                     } 

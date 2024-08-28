@@ -157,16 +157,13 @@ const PersonalDetailsPage = () => {
                         }))
                         updateUser(data.data)
                         sessionStorage.removeItem('formData')
-                        if(formData.redirect){
-                            startTransition(()=>{
+                        startTransition(()=>{
+                            if(formData.redirect){
                                 navigate(formData.redirect)
-                                
-                            })
-                        }else{
-                            startTransition(()=>{
-                                navigate(`/account/me`)
-                            })
-                        }
+                            }else{
+                                navigate('/account/me')
+                            }
+                        })
                     }else{
                         setError(prev => 'An Error Occured')
                     }

@@ -41,6 +41,8 @@ function App() {
     updateUser: state.updateUser,
   }))
 
+  const authToken = JSON.parse(localStorage.getItem('nivanUserData'))
+
 
   copyToClipboard = (text)  => {
     navigator.clipboard.writeText(text).then(function() {
@@ -93,15 +95,15 @@ function App() {
               <Route exact path='/' element={ <Home /> } />
               <Route path='/services' element = { <ServicesPage /> } />
 
-              <Route path='/account/me' element ={ token ? <Account /> : <Navigate to={'/account/login' } />  } />
+              <Route path='/account/me' element ={ authToken ? <Account /> : <Navigate to={'/account/login' } />  } />
               <Route path='/account/login' element = { <LoginPage /> } />
               <Route path='/account/verify' element = { <VerifyOTPPage />  } />
               <Route path='/account/personaldetails' element = { <PersonalDetialsPage />  } />
 
-              <Route path='/account/payment/:plan' element ={ token ? <PaymentPage /> : <Navigate to={'/account/login' } />  } />
+              <Route path='/account/payment/:plan' element ={ authToken ? <PaymentPage /> : <Navigate to={'/account/login' } />  } />
 
               <Route path='/payment/verify' element = { <VerifyPayment />  } />
-              <Route path='/account/terms_and_conditions/' element ={ token ? <TermsConditionsPage /> : <Navigate to={'/account/login' } />  } />
+              <Route path='/account/terms_and_conditions/' element ={ authToken ? <TermsConditionsPage /> : <Navigate to={'/account/login' } />  } />
 
               {/* <Route path='/services/portfolio' element = { <Portfolio /> } /> */}
               <Route path='/services/mentorships' element = { <Mentorships />  } />

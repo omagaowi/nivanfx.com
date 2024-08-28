@@ -89,18 +89,18 @@ const NavBar = ({white}) => {
                         }}>Services</p>
                     </li>
                     <li>
-                        <NavLink to={ '/contact' } onClick={(e)=>{
+                        <NavLink to={ '/account/me' } onClick={(e)=>{
                             e.preventDefault()
                             startTransition(()=>{
-                                navigate('/contact')
+                                navigate('/account/me')
                             })
-                        }}>Contact</NavLink>
+                        }}>Account</NavLink>
                        <p onClick={(e)=>{
                             e.preventDefault()
                             startTransition(()=>{
-                                navigate('/contact')
+                                navigate('/account/me')
                             })
-                        }}>Contact</p>
+                        }}>Account</p>
                     </li>
                     <li>
                         <a href='https://one.exnesstrack.net/a/yke3rzwi9i' target='default'>Broker</a>
