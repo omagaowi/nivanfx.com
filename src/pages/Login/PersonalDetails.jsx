@@ -10,9 +10,10 @@ import MobileNav from '../../components/MobileNav.jsx'
 
 
 const PersonalDetailsPage = () => {
-    const {user, updateUser} = useAuthStore((state) => ({
+    const {user, updateUser, updateToken} = useAuthStore((state) => ({
         updateUser: state.updateUser,
         user: state.user,
+        updateToken: state.updateToken
     }))
 
     console.log(user)
@@ -156,6 +157,7 @@ const PersonalDetailsPage = () => {
                             token: data.data.token
                         }))
                         updateUser(data.data)
+                        updateToken(data.data.token)
                         sessionStorage.removeItem('formData')
                         startTransition(()=>{
                             if(formData.redirect){
