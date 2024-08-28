@@ -94,21 +94,27 @@ const Subscriptions = () => {
                                                     navbarRef.current.querySelector('.loading').classList.add('show')
                                                 }
                                             }
-                                            fetchSubscription(subCode).then((data)=>{
-                                                if(navbarRef){
-                                                    if(navbarRef.current){
-                                                        navbarRef.current.querySelector('.loading').classList.remove('show')
+                                            if(data.mentorship.status == 'renew'){
+                                                fetchSubscription(subCode).then((data)=>{
+                                                    if(navbarRef){
+                                                        if(navbarRef.current){
+                                                            navbarRef.current.querySelector('.loading').classList.remove('show')
+                                                        }
                                                     }
-                                                }
-                                                window.location.href = data.data.link
-                                            }).catch((err)=>{
-                                                setMiniError('An Error Occurred')
-                                                if(navbarRef){
-                                                    if(navbarRef.current){
-                                                        navbarRef.current.querySelector('.loading').classList.remove('show')
+                                                    window.location.href = data.data.link
+                                                }).catch((err)=>{
+                                                    setMiniError('An Error Occurred')
+                                                    if(navbarRef){
+                                                        if(navbarRef.current){
+                                                            navbarRef.current.querySelector('.loading').classList.remove('show')
+                                                        }
                                                     }
-                                                }
-                                            })
+                                                })
+                                            }else{
+                                                startTransition(()=>{
+                                                    navigate(`/services/mentorships/#plans`)
+                                                 })
+                                            }
                                         }else{
                                             startTransition(()=>{
                                                navigate(`/services/mentorships/#plans`)
@@ -139,21 +145,27 @@ const Subscriptions = () => {
                                                     navbarRef.current.querySelector('.loading').classList.add('show')
                                                 }
                                             }
-                                            fetchSubscription(subCode).then((data)=>{
-                                                if(navbarRef){
-                                                    if(navbarRef.current){
-                                                        navbarRef.current.querySelector('.loading').classList.remove('show')
+                                            if(data.signals.status == 'renew'){
+                                                fetchSubscription(subCode).then((data)=>{
+                                                    if(navbarRef){
+                                                        if(navbarRef.current){
+                                                            navbarRef.current.querySelector('.loading').classList.remove('show')
+                                                        }
                                                     }
-                                                }
-                                                window.location.href = data.data.link
-                                            }).catch((err)=>{
-                                                setMiniError('An Error Occurred')
-                                                if(navbarRef){
-                                                    if(navbarRef.current){
-                                                        navbarRef.current.querySelector('.loading').classList.remove('show')
+                                                    window.location.href = data.data.link
+                                                }).catch((err)=>{
+                                                    setMiniError('An Error Occurred')
+                                                    if(navbarRef){
+                                                        if(navbarRef.current){
+                                                            navbarRef.current.querySelector('.loading').classList.remove('show')
+                                                        }
                                                     }
-                                                }
-                                            })
+                                                })
+                                            }else{
+                                                startTransition(()=>{
+                                                    navigate(`/services/signals#premuim_signals`)
+                                                 })
+                                            }
                                         }else{
                                             startTransition(()=>{
                                                navigate(`/services/signals#premuim_signals`)
