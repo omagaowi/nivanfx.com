@@ -1,14 +1,39 @@
-import { useState } from "react"
+import { useState, useTransition } from "react"
+import { useNavigate } from "react-router"
 import Subscriptions from "./Subscriptions.jsx"
 import YourData from "./YourData.jsx"
 import { useAuthStore } from "../../utils/authStore.js"
+import { navbarRef } from "../../components/NavBar.jsx"
 
 const AccountMain = () => {
 
     const [active, setActive] = useState('subs')
+    const [isPending, startTransition] = useTransition()
+    const navigate = useNavigate()
 
-    const { user } = useAuthStore((state) => ({
-        user: state.user
+    if(isPending){
+        if(navbarRef){
+            if(navbarRef.current){
+                navbarRef.current.querySelector('.loading').classList.add('show')
+            }
+        }
+    }else{
+        if(navbarRef){
+            if(navbarRef.current){
+                navbarRef.current.querySelector('.loading').classList.remove('show')
+            }
+        }
+    }
+
+    const { token, user, updateToken, updateUser, authRedirect, setAuthRedirect, tokenError, updateTokenError } = useAuthStore((state) => ({
+        token: state.token,
+        user: state.user,
+        updateUser: state.updateUser,
+        updateToken: state.updateToken,
+        tokenError: state.tokenError,
+        updateTokenError: state.updateTokenError,
+        authRedirect: state.authRedirect,
+        setAuthRedirect: state.setAuthRedirect
     }))
 
     return (
@@ -37,6 +62,16 @@ const AccountMain = () => {
                     <YourData />
                 )
             }
+            <div className="bottom-account-bar">
+                <h4>Logged in as <b>{ user.email }</b> <p onClick={ () => {
+                    updateUser(false)
+                    updateToken(false)
+                    localStorage.removeItem('nivanUserData')
+                    startTransition(()=>{
+                        navigate(`/account/login`)
+                     })
+                } }>Logout?</p></h4>
+            </div>
         </div>
     )
 }

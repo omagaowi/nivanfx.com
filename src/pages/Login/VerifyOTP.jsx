@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef } from "react"
 import { navAnimationsDesktop } from "../../animations/navAnimations.js"
-import NavBar from "../../components/NavBar"
-import { navbarRef } from "../../components/NavBar.jsx"
+import NavBar from "../../components/NavBar.jsx"
 import { useTransition } from "react"
 import './login.css'
 import { redirect, useNavigate } from "react-router"

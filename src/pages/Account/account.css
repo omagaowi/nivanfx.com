@@ -13,6 +13,7 @@
     position: absolute;
     top: 0px;
     left: 0px;
+   padding-bottom: 50px;
     /* display: flex; */
 }
 
@@ -89,7 +90,7 @@
     min-height: 300px;
     position: relative;
     left: 10%;
-    top: 170px;
+    margin-top: 170px;
     display: grid;
     /* justify-items: center; */
     grid-gap: 20px;
@@ -185,7 +186,7 @@
     min-height: 300px;
     position: relative;
     left: 11%;
-    top: 200px;
+    margin-top: 200px;
     /* background: #444444; */
 }
 
@@ -251,6 +252,33 @@
 
 .account-data button:hover{
     background: #004400;
+}
+
+.bottom-account-bar{
+    width: 100vw;
+    height: 40px;
+    background: #fff;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+.bottom-account-bar h4{
+    position: absolute;
+    right: 35px;
+    color: #2d2d2d;
+    display: flex;
+}
+
+.bottom-account-bar b{
+    margin-left: 5px;
+}
+
+.bottom-account-bar h4 p{
+    color: #8B00FF;
+    margin-left: 5px;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 574px) {

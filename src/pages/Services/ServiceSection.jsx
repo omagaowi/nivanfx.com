@@ -50,7 +50,6 @@ const CardComponent = ({card}) => {
     if(isPending){
         if(navbarRef){
             if(navbarRef.current){
-                console.log('load')
                 navbarRef.current.querySelector('.loading').classList.add('show')
             }
         }
