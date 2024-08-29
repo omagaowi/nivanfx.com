@@ -16,7 +16,7 @@ const PersonalDetailsPage = () => {
         updateToken: state.updateToken
     }))
 
-    console.log(user)
+ 
 
 
 
@@ -77,7 +77,7 @@ const PersonalDetailsPage = () => {
         fetch(`${root}/getCountryCode`).then((response) => {
             return response.json()
         }).then((data) => {
-            // console.log(data)
+ 
             setCountryList(prev => data)
             setCountryLoading(prev => false)
         }).catch(err => {
@@ -181,7 +181,7 @@ const PersonalDetailsPage = () => {
                     }
                     navbarRef.current.querySelector('.loading').classList.remove('show')
                 }).catch((err) => {
-                    console.log(err)
+ 
                     navbarRef.current.querySelector('.loading').classList.remove('show')
                     setError(prev => 'An Error Occured')
                 })
@@ -193,7 +193,7 @@ const PersonalDetailsPage = () => {
         }
     }
 
-    console.log(countryList)
+ 
 
     return (
         <div className="personal-details-container container">

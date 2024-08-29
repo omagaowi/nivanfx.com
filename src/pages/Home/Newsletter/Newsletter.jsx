@@ -22,7 +22,7 @@ const Newsletter = () => {
             }).then((respnse)=>{
               return respnse.json()
             }).then((data)=>{
-                console.log(data)
+ 
                 setLoading(false)
                 if(data.status){
                     setStatus({
@@ -44,7 +44,7 @@ const Newsletter = () => {
                 
             }).catch((err)=>{
                 setLoading(false)
-                console.log(err)
+ 
                 setStatus({
                     status: 'error',
                     msg: 'Check your connection and try again!'

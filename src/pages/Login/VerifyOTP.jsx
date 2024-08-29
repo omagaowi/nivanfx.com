@@ -22,7 +22,7 @@ const VerifyOTPMain = () => {
         updateToken: state.updateToken
     }))
 
-    // console.log(user, token)
+ 
 
     const [otp, setOTP] = useState(false)
     const [userInput, setUserInput] = useState()
@@ -147,7 +147,7 @@ const VerifyOTPMain = () => {
             if(userOTP == otp){
                 if(formData.login){
                     // navbarRef.current.querySelector('.loading').classList.add('show')
-                    // console.log(navbarRef)
+ 
                     setLoading(true)
                     loginUser().then((data) => {
                         setLoading(false)
@@ -172,7 +172,7 @@ const VerifyOTPMain = () => {
                         }
                     }).catch((err) =>{
                         setLoading(false)
-                        // console.log(err)
+ 
                         setError(prev => 'An Error Occured!')
                     })
                 }else{

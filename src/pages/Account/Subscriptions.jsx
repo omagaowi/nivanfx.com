@@ -72,7 +72,7 @@ const Subscriptions = () => {
             setError(true)
         })
     }, [])
-    console.log(data)
+ 
     return (
         <div className="account-subscriptions">
              <Error error={ miniError ? true: false } status = { false } msg = { miniError } setError = { setMiniError }/>

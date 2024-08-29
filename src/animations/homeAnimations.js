@@ -67,7 +67,7 @@ const firstSectionAnimationsDesktop = (firstSectionRef) => {
             firstSectionImage.classList.remove("no-opacity");
             firstSectionImage.classList.remove("remove");
         } else {
-            console.log('dd')
+ 
         }
       });
     };

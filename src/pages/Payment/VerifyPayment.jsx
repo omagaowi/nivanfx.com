@@ -11,7 +11,7 @@ const VerifyPayment = () => {
     const [loading, setLoading] = useState(false)
     const [data, setData] = useState(false)
 
-    console.log(data)
+ 
 
     const { token, updateToken, user, updateUser, tokenError, updateTokenError } = useAuthStore((state)=> ({
         token: state.token,
@@ -50,7 +50,7 @@ const VerifyPayment = () => {
             }else{
                 setLoading(prev => false)
                 setData(prev => false)
-                console.log(data)
+ 
                 if(data.msg == 'Invalid Token'){
                     setError(prev => 'Unauthorized user!')
                     updateUser(false)
@@ -128,7 +128,7 @@ const VerifyPayment = () => {
                                                         }else{
                                                             setLoading(prev => false)
                                                             setData(prev => false)
-                                                            console.log(data)
+ 
                                                             if(data.msg == 'Invalid Token'){
                                                                 setError(prev => 'Unauthorized user!')
                                                                 updateUser(false)

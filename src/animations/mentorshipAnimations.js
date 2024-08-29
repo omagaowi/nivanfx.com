@@ -70,7 +70,7 @@ const freeGuideAnimation = (freeGuideRef) => {
 
 const plansHeaderAnimation = (plansRef) => {
     const heading = plansRef.current.querySelector(".heading");
-    console.log(heading)
+ 
     heading.querySelector("h1").classList.add("remove");
 
      let plansHeaderOptions = {

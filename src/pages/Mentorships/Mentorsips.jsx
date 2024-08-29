@@ -19,19 +19,19 @@ const Mentorships = () => {
             if(window.location.href.split('/')[4] == 'mentorships'){
                 if(window.location.href.split('/')[5]){
                     if(window.location.hash == '#plans'){
-                        console.log('aa')
+ 
                         const elem = mentorshipMainRef.current.querySelector('#mentorship-plans-id')
                         if (elem) {
                             elem.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         } else {
-                            console.log("Element not found");
+ 
                         }
                     }else{
                         const elem = mentorshipMainRef.current.querySelector('.service-hero-main')
                         if (elem) {
                             elem.scrollIntoView({block: 'start' });
                         } else {
-                            console.log("Element not found");
+ 
                         }
                     }
                 }else{
@@ -39,7 +39,7 @@ const Mentorships = () => {
                     if (elem) {
                         elem.scrollIntoView({block: 'start' });
                     } else {
-                        console.log("Element not found");
+ 
                     }
                 }
             }

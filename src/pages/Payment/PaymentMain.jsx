@@ -80,7 +80,7 @@ const PaymentMain = () => {
            return response.json()   
         }).then((data) => {
             setLoading(prev => false)
-            console.log(data)
+ 
             if(data.status){
                 setData(data.data)
             }else{
@@ -95,13 +95,13 @@ const PaymentMain = () => {
                 }
             }
         }).catch((err) => {
-            console.log(err)
+ 
             setLoading(prev => false)
             setError(true)
         })
       }
 
-    //   console.log(data)
+ 
 
       const processTransaction = async () => {
         const headers = {
@@ -114,7 +114,7 @@ const PaymentMain = () => {
                 method: 'GET'
             })
             const data = await response.json()
-            console.log(data)
+ 
             return data
         } catch (error) {
             throw error;

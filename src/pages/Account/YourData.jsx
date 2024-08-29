@@ -50,7 +50,7 @@ const YourData = () => {
                 }
             }
         }).catch((err) => {
-            console.log(err)    
+ 
             setLoading(prev => false)
             setError(prev => true)
         })
