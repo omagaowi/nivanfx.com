@@ -258,7 +258,7 @@
     width: 100vw;
     height: 40px;
     background: #fff;
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     left: 0px;
 }
@@ -267,6 +267,8 @@
     position: absolute;
     right: 35px;
     color: #2d2d2d;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
 }
 
