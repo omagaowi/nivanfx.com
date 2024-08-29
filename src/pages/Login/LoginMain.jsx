@@ -1,4 +1,4 @@
-import { navbarRef } from "../../components/NavBar"
+import { navbarRef } from "../../components/NavBar.jsx"
 import { useEffect, useRef, useState, useTransition } from "react"
 import { redirect, useNavigate } from "react-router"
 import { root, useAuthStore } from "../../utils/authStore.js"

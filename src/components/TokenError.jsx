@@ -1,5 +1,7 @@
 import { useAuthStore } from "../utils/authStore.js"
 import { useNavigate } from "react-router"
+import { useTransition } from "react"
+import { navbarRef } from "./NavBar.jsx"
 
 
 const TokenError = () => {
@@ -8,6 +10,22 @@ const TokenError = () => {
         tokenError: state.tokenError,
       }))
     const navigate = useNavigate()
+    const [isPending, startTransition] = useTransition()
+
+
+    if(isPending){
+        if(navbarRef){
+            if(navbarRef.current){
+                navbarRef.current.querySelector('.loading').classList.add('show')
+            }
+        }
+    }else{
+        if(navbarRef){
+            if(navbarRef.current){
+                navbarRef.current.querySelector('.loading').classList.remove('show')
+            }
+        }
+    }
     return (
         <div className="token-error-bg">
             <div className="token-error-window">
@@ -19,7 +37,9 @@ const TokenError = () => {
                 <p>You may have to re-login.</p>
                 <button onClick={() => {
                     updateTokenError(false)
-                    navigate('/account/login')
+                    startTransition(()=>{
+                        navigate('/account/login')
+                    })
                 }}>Login</button>
             </div>
         </div>

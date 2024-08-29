@@ -3,8 +3,9 @@ import SignalsImage from '../../assets/signals.jpg'
 import Graphs from '../../assets/graphs.jpeg'
 import FreeImage from '../../assets/free_signal.jpg'
 import PaidImage from '../../assets/paid_signal.jpg'
-import { useRef } from "react"
+import { useRef, useTransition } from "react"
 import { useNavigate } from "react-router"
+import { navbarRef } from "../../components/NavBar.jsx"
 
 let freeSignalRef
 let paidSignalRef
@@ -13,11 +14,27 @@ const SignalsMain = () => {
     paidSignalRef = useRef(false)
 
     const navigate = useNavigate()
+    const [isPending, startTransition] = useTransition()
 
     const signalsData = {
         service: "SIGNALS",
         heading: "Unlock Profit Potential with Our Expert Trading Signals.",
     }
+
+    if(isPending){
+        if(navbarRef){
+            if(navbarRef.current){
+                navbarRef.current.querySelector('.loading').classList.add('show')
+            }
+        }
+    }else{
+        if(navbarRef){
+            if(navbarRef.current){
+                navbarRef.current.querySelector('.loading').classList.remove('show')
+            }
+        }
+    }
+
     return (
         <div className="signals-main">
             <ServicesHero data = { signalsData } image = { SignalsImage }/>
@@ -53,7 +70,9 @@ const SignalsMain = () => {
                      <p className="no-opacity">Access Premium Signals for Unparalleled Insights and Profitability. With Nivan FX's Premium Signals, get exclusive access to advanced analytics, expert recommendations, and precise market forecasts. Gain access to our pro trading signals at 50% discount of <b style={{color: "#8B00FF"}}>$15/mo</b>.</p>
                      <div className="buttons no-opacity">
                         <button onClick={ () => {
-                           navigate(`/account/payment/PLN_d87553b9gq8mhde`)
+                             startTransition(()=>{
+                                navigate(`/account/payment/PLN_d87553b9gq8mhde`)
+                            })
                         } }>Join Now</button>
                      </div>
                    </div>

@@ -1,9 +1,27 @@
 import './plans.css'
 
 import { useNavigate } from 'react-router'
+import { useTransition } from 'react'
+import { navbarRef } from '../NavBar.jsx'
 
 const Plans = () => {
     const navigate = useNavigate()
+    const [isPending, startTransition] = useTransition()
+
+    if(isPending){
+        if(navbarRef){
+            if(navbarRef.current){
+                navbarRef.current.querySelector('.loading').classList.add('show')
+            }
+        }
+    }else{
+        if(navbarRef){
+            if(navbarRef.current){
+                navbarRef.current.querySelector('.loading').classList.remove('show')
+            }
+        }
+    }
+
     const plansArray = [
         {
             plan: "Intermediate",
@@ -85,7 +103,9 @@ const Plans = () => {
                         }
                     </div>
                     <button onClick={ (e) => {
-                        navigate(`/account/payment/${plan.code}`)
+                         startTransition(()=>{
+                            navigate(`/account/payment/${plan.code}`)
+                        })
                     } }>Enroll Now</button>
                 </div>
         )

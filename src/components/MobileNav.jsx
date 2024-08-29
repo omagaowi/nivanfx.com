@@ -51,9 +51,9 @@ const MobileNav = () => {
                         }}>Services</a></li>
                     <li><a onClick={()=>{
                             startTransition(()=>{
-                                navigate('/contact')
+                                navigate('/account/me')
                             })
-                        }}>Contact</a></li>
+                        }}>Account</a></li>
                     <li> <a href='https://one.exnesstrack.net/a/yke3rzwi9i' target='default'>Broker</a></li>
                 </ul>
         </div>

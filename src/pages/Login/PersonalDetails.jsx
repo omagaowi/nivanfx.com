@@ -19,6 +19,8 @@ const PersonalDetailsPage = () => {
     console.log(user)
 
 
+
+
     const [showTelBg, setShowTelBg] = useState(false)
     const [headingSearch, setHeadingSearch] = useState(false)
     const [countryList, setCountryList] = useState([])
@@ -91,10 +93,14 @@ const PersonalDetailsPage = () => {
         }
         fetchCountryCodes()
         if(!JSON.parse(sessionStorage.getItem('formData'))){
-            navigate('/account/login')
+            startTransition(()=>{
+                navigate('/account/login')
+            })
         }else{
             if(!JSON.parse(sessionStorage.getItem('formData')).isVerified){
-                navigate('/account/verify')
+                startTransition(()=>{
+                    navigate('/account/verify')
+                })
             }
         }
         if(!rendered){
@@ -161,9 +167,13 @@ const PersonalDetailsPage = () => {
                         sessionStorage.removeItem('formData')
                         startTransition(()=>{
                             if(formData.redirect){
-                                navigate(formData.redirect)
+                                startTransition(()=>{
+                                    navigate(formData.redirect)
+                                })
                             }else{
-                                navigate('/account/me')
+                                startTransition(()=>{
+                                    navigate('/account/me')
+                                })
                             }
                         })
                     }else{

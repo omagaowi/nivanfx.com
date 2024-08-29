@@ -6,6 +6,7 @@ import { useTransition } from "react"
 import './login.css'
 import { redirect, useNavigate } from "react-router"
 import Error from "../../components/Error.jsx"
+import { navbarRef } from "../../components/NavBar.jsx"
 
 import { root, apiKeys, useAuthStore } from "../../utils/authStore.js"
 import MobileNav from "../../components/MobileNav.jsx"
@@ -133,7 +134,9 @@ const VerifyOTPMain = () => {
     useEffect(() => {
         sendOTP()
         if(!JSON.parse(sessionStorage.getItem('formData'))){
-            navigate('/account/login')
+            startTransition(()=>{
+                navigate('/account/login')
+            })
         }
         setFormData(JSON.parse(sessionStorage.getItem('formData')))
     }, [])
@@ -156,9 +159,13 @@ const VerifyOTPMain = () => {
                              sessionStorage.removeItem('formData')
                             startTransition(()=>{
                                 if(formData.redirect){
-                                    navigate(formData.redirect)
+                                    startTransition(()=>{
+                                        navigate(formData.redirect)
+                                    })
                                 }else{
-                                    navigate('/account/me')
+                                    startTransition(()=>{
+                                         navigate('/account/me')
+                                    })
                                 }
                             })
                         }else{

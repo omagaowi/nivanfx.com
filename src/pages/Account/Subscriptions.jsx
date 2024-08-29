@@ -72,7 +72,7 @@ const Subscriptions = () => {
             setError(true)
         })
     }, [])
-
+    console.log(data)
     return (
         <div className="account-subscriptions">
              <Error error={ miniError ? true: false } status = { false } msg = { miniError } setError = { setMiniError }/>
@@ -129,7 +129,16 @@ const Subscriptions = () => {
                                                 <h2>Mentorships</h2>
                                                 {
                                                     data.mentorship? (
-                                                        <p>{ data.mentorship.plan }</p>
+                                                        <>
+                                                             <p>{ data.mentorship.plan }</p>
+                                                             {
+                                                                data.mentorship.status == 'renew'? (
+                                                                    <p className="status">Status: Active</p>
+                                                                ):(
+                                                                    <p className="status">Status: <span style={ { color: 'red' }}>Canceled</span></p>
+                                                                )
+                                                             }
+                                                        </>
                                                     ):(
                                                         <p>No active subscription</p>
                                                     )
@@ -180,7 +189,16 @@ const Subscriptions = () => {
                                                 <h2>Signals</h2>
                                                 {
                                                     data.signals? (
-                                                        <p>Manage your subsctiption</p>
+                                                        <>
+                                                            <p>Manage your subsctiption</p>
+                                                            {
+                                                                data.signals.status == 'renew'? (
+                                                                    <p className="status">Status: Active</p>
+                                                                ):(
+                                                                    <p className="status">Status: <span style={ { color: 'red' }}>Canceled</span></p>
+                                                                )
+                                                             }
+                                                        </>
                                                     ):(
                                                         <p>No active subscription</p>
                                                     )
