@@ -64,7 +64,7 @@ const Plans = () => {
                 "Access to all profitable features plus:",
                 "One on one with Nivan Fx.",
                 "Q & A Sessions",
-                "Pro level psyclogical build up (mind of a profitable trader).",
+                "Pro level psychological build up (mind of a profitable trader).",
             ],
             link: 'https://nivan-api.onrender.com/redirect/payment/exclusive'
         }

@@ -39,7 +39,7 @@ const AccountMain = () => {
     return (
         <div className="account-main">
             <div className="title">
-                <h1>Hello { user.first_name }</h1>
+                <h1>Hello { user.first_name },</h1>
             </div>
             <div className="account-nav">
                 <div className="account-nav-overflow">
