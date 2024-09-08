@@ -30,3 +30,21 @@
     margin-left: 5px;
     color: #8B00FF;
 }
+
+@media screen and (max-width: 500px) {
+    .footer{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer p{
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .footer{
+      height: 90px;
+    }
+
+}

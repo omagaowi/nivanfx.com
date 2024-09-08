@@ -121,6 +121,74 @@ const PaymentMain = () => {
         }
     }
 
+    const ExistingSubscription = () => {
+        return (
+        <>
+            <h2>Existing subscription detected</h2>
+            <p>To subscribe to this service cancel your current valid { data.mentorship.plan } subscription</p>
+            <button onClick={()=>{
+                if(navbarRef.current){
+                    navbarRef.current.querySelector('.loading').classList.add('show')
+                }
+                fetchSubscription(data.mentorship.subcription_code).then((data)=>{
+                    if(navbarRef){
+                        if(navbarRef.current){
+                            navbarRef.current.querySelector('.loading').classList.remove('show')
+                        }
+                    }
+                    window.location.href = data.data.link
+                }).catch(err => {
+                    if(navbarRef){
+                        if(navbarRef.current){
+                            navbarRef.current.querySelector('.loading').classList.remove('show')
+                        }
+                    }
+                   setMiniError('An Error Occurred!')
+                })
+            }}>Cancel</button>
+        </>
+        )
+    }
+
+    const NonExisting = () => {
+        return (
+            <>
+                <h2>{ plan.plan }</h2>
+                <p>Subscribe to this service as <b>{ user.email }</b></p>
+                <button onClick={()=>{
+                    if(navbarRef.current){
+                        navbarRef.current.querySelector('.loading').classList.add('show')
+                    }  
+                    processTransaction().then((data)=>{
+                        if(navbarRef.current){
+                            navbarRef.current.querySelector('.loading').classList.remove('show')
+                        }  
+                    if(data.status){
+                        startTransition(()=>{
+                            navigate(`/account/terms_and_conditions/?redirect=${data.data.authorization_url}`)
+                        })
+                    }else{
+                        if(data.msg == 'Invalid Token'){
+                            updateUser(false)
+                            updateToken(false)
+                            localStorage.removeItem('nivanUserData')
+                            updateTokenError(true)
+                            setAuthRedirect(`/account/payment/${plan.code}`)
+                        }else{
+                            setMiniError('An Error Occured!')
+                        }
+                    }   
+                    }).catch((error) => {
+                        setMiniError('An Error Occured!')
+                        if(navbarRef.current){
+                            navbarRef.current.querySelector('.loading').classList.remove('show')
+                        } 
+                    })
+                }}>Confirm </button>
+            </>
+        )
+    }
+
       useEffect(()=>{
         const planCode = window.location.href.split('/')[5]
         fetchSubs(planCode)
@@ -141,113 +209,19 @@ const PaymentMain = () => {
                             data && plan? (
                                 <>
                                     {
-                                        data.mentorship? (
-                                            plan.type == 'mentorship'? (
-                                                <>
-                                                    <h2>Existing subscription detected</h2>
-                                                    <p>To subscribe to this service cancel your current valid { data.mentorship.plan } subscription</p>
-                                                    <button onClick={()=>{
-                                                        if(navbarRef.current){
-                                                            navbarRef.current.querySelector('.loading').classList.add('show')
-                                                        }
-                                                        fetchSubscription(data.mentorship.subcription_code).then((data)=>{
-                                                            if(navbarRef){
-                                                                if(navbarRef.current){
-                                                                    navbarRef.current.querySelector('.loading').classList.remove('show')
-                                                                }
-                                                            }
-                                                            window.location.href = data.data.link
-                                                        }).catch(err => {
-                                                            if(navbarRef){
-                                                                if(navbarRef.current){
-                                                                    navbarRef.current.querySelector('.loading').classList.remove('show')
-                                                                }
-                                                            }
-                                                           setMiniError('An Error Occurred!')
-                                                        })
-                                                    }}>Cancel</button>
-                                                </>
-                                            ):(
-                                                <>
-                                                    <h2>{ plan.plan }</h2>
-                                                    <p>Subscribe to this service as <b>{ user.email }</b></p>
-                                                    <button onClick={()=>{
-                                                        if(navbarRef.current){
-                                                            navbarRef.current.querySelector('.loading').classList.add('show')
-                                                        }  
-                                                        processTransaction().then((data)=>{
-                                                            if(navbarRef.current){
-                                                                navbarRef.current.querySelector('.loading').classList.remove('show')
-                                                            }  
-                                                        if(data.status){
-                                                            startTransition(()=>{
-                                                                navigate(`/account/terms_and_conditions/?redirect=${data.data.authorization_url}`)
-                                                            })
-                                                        }else{
-                                                            if(data.msg == 'Invalid Token'){
-                                                                updateUser(false)
-                                                                updateToken(false)
-                                                                localStorage.removeItem('nivanUserData')
-                                                                updateTokenError(true)
-                                                                setAuthRedirect(`/account/payment/${plan.code}`)
-                                                            }else{
-                                                                setMiniError('An Error Occured!')
-                                                            }
-                                                        }   
-                                                        }).catch((error) => {
-                                                            setMiniError('An Error Occured!')
-                                                            if(navbarRef.current){
-                                                                navbarRef.current.querySelector('.loading').classList.remove('show')
-                                                            } 
-                                                        })
-                                                    }}>Confirm </button>
-                                                </>
-                                            )
+                                      plan.type == 'mentorship'? (
+                                        data.mentorship && data.mentorship.status == 'renew'? (
+                                            <ExistingSubscription />
                                         ):(
-                                            <>
-                                                {
-                                                     plan.type == 'signals'? (
-                                                        <></>
-                                                     ):(
-                                                         <>
-                                                            <h2>{ plan.plan }</h2>
-                                                            <p>Subscribe to this service as <b>{ user.email }</b></p>
-                                                            <button onClick={()=>{
-                                                                if(navbarRef.current){
-                                                                    navbarRef.current.querySelector('.loading').classList.add('show')
-                                                                }  
-                                                                processTransaction().then((data)=>{
-                                                                    if(navbarRef.current){
-                                                                        navbarRef.current.querySelector('.loading').classList.remove('show')
-                                                                    }  
-                                                                if(data.status){
-                                                                    startTransition(()=>{
-                                                                        navigate(`/account/terms_and_conditions/?redirect=${data.data.authorization_url}`)
-                                                                    })
-                                                                }else{
-                                                                    if(data.msg == 'Invalid Token'){
-                                                                        navbarRef.current.querySelector('.loading').classList.remove('show')
-                                                                        updateUser(false)
-                                                                        updateToken(false)
-                                                                        localStorage.removeItem('nivanUserData')
-                                                                        updateTokenError(true)
-                                                                        setAuthRedirect(`/account/payment/${plan.code}`)
-                                                                    }else{
-                                                                        setMiniError('An Error Occured!')
-                                                                    }
-                                                                }   
-                                                                }).catch((error) => {
-                                                                    setMiniError('An Error Occured!')
-                                                                    if(navbarRef.current){
-                                                                        navbarRef.current.querySelector('.loading').classList.remove('show')
-                                                                    } 
-                                                                })
-                                                            }}>Confirm </button>
-                                                         </>
-                                                     )
-                                                }
-                                            </>
+                                            <NonExisting />
                                         )
+                                      ):(
+                                        data.signal && data.signal.status == 'renew'? (
+                                            <ExistingSubscription />
+                                        ):(
+                                            <NonExisting />
+                                        )
+                                      )
                                     }
                                 </>
                             ):(
