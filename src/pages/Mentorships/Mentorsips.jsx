@@ -16,6 +16,11 @@ const Mentorships = () => {
         if(!rendered){
             navAnimationsDesktop()
             runMentorshipAnimations()
+            window.scrollTo({
+                top: 0,
+                left: 0,
+              });
+            rendered = true
             // if(window.location.href.split('/')[4] == 'mentorships'){
             //     if(window.location.href.split('/')[5]){
             //         if(window.location.hash == '#plans'){
