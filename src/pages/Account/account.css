@@ -102,7 +102,8 @@
 .account-subscriptions .card{
     background: #fff;
     height: 290px;
-    width: 390px;
+    max-width: 390px;
+    width: 90vw;
     position: relative;
     /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15),
     0 3px 6px rgba(0, 0, 0, 0.15); */
@@ -330,6 +331,11 @@
     .account-main .account-subscriptions{
         left: 0px;
     }
+
+    .account-subscriptions .card{
+        margin-left: 0px;
+    }
+
     .account-main .account-data{
         position: relative;
         left: 0%;
@@ -339,3 +345,4 @@
         align-items: center;
     }
 }
+

@@ -1,12 +1,15 @@
 import './plans.css'
 
 import { useNavigate } from 'react-router'
-import { useTransition } from 'react'
+import { useEffect, useState, useTransition } from 'react'
 import { navbarRef } from '../NavBar.jsx'
+import { combine } from 'zustand/middleware'
 
 const Plans = () => {
     const navigate = useNavigate()
     const [isPending, startTransition] = useTransition()
+    const [isTime, setIsTime] = useState(new Date("October 1, 2024 00:00:00").getTime() - new Date().getTime() > 0? false : true)
+    
 
     if(isPending){
         if(navbarRef){
@@ -102,14 +105,26 @@ const Plans = () => {
                             ))
                         }
                     </div>
-                    <button onClick={ (e) => {
-                         startTransition(()=>{
-                            navigate(`/account/payment/${plan.code}`)
-                        })
-                    } }>Enroll Now</button>
+                    {
+                        isTime? (
+                            <button onClick={ (e) => {
+                                if(isTime){
+                                    startTransition(()=>{
+                                        navigate(`/account/payment/${plan.code}`)
+                                    })
+                                }
+                            } }>Enroll Now</button>
+                        ):(
+                            <button style={ { cursor: 'not-allowed' } }>Launching Soon!</button>
+                        )
+                    }
                 </div>
         )
     }
+
+    useEffect(()=>{
+        setIsTime(new Date("October 1, 2024 00:00:00").getTime() - new Date().getTime() > 0? false : true)
+    })
 
     return (
         <div className="plans" id='plans'>

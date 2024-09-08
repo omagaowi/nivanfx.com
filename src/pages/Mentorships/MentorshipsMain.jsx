@@ -4,6 +4,7 @@ import ServicesHero from '../../components/ServicesHero.jsx'
 import ServicesImg from '../../assets/services.jpg'
 import MentorshipImage from '../../assets/mentorship.png'
 import { useRef } from 'react'
+import CountdownMain from '../Countdown/CountdownMain.jsx'
 
 let freeGuideRef
 let plansRef
@@ -18,6 +19,7 @@ const MentorshipsMain = () => {
     return (
         <div className="mentorships-main">
             <ServicesHero data={ mentorshipData } image = { MentorshipImage }/>
+            <CountdownMain />
             <div className="free-guide" ref={ freeGuideRef }>
                 <div className="free-guide-bg">
                     <img src={ FreeGudeImage } alt="" loading='lazy'/>
