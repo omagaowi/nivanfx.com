@@ -8,7 +8,7 @@ import { combine } from 'zustand/middleware'
 const Plans = () => {
     const navigate = useNavigate()
     const [isPending, startTransition] = useTransition()
-    const [isTime, setIsTime] = useState(new Date("October 1, 2024 00:00:00").getTime() - new Date().getTime() > 0? false : true)
+    const [isTime, setIsTime] = useState(new Date("September 23, 2024 00:00:00").getTime() - new Date().getTime() > 0? false : true)
     
 
     if(isPending){
@@ -123,7 +123,7 @@ const Plans = () => {
     }
 
     useEffect(()=>{
-        setIsTime(new Date("October 1, 2024 00:00:00").getTime() - new Date().getTime() > 0? false : true)
+        setIsTime(new Date("September 23, 2024 00:00:00").getTime() - new Date().getTime() > 0? false : true)
     })
 
     return (

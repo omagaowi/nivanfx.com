@@ -11,7 +11,7 @@ const CountdownMain = () => {
 
     const timer = () => {
         // const lunch = new Date("June 28, 2022 00:00:00").getTime();
-        const lunchTime = new Date("October 1, 2024 00:00:00").getTime(); //Date Counting To
+        const lunchTime = new Date("September 23, 2024 00:00:00").getTime(); //Date Counting To
         const currentTime = new Date().getTime() //Current Date
         const remain = lunchTime - currentTime;
     
@@ -84,7 +84,7 @@ const CountdownMain = () => {
         <div className="countdown-main" id='countdown-section'>
             <div className="countdown-dark">
                 <h1>We are Launching Soon!</h1>
-                <p className='sub-text'>We're excited announce the launch our premium signals and mentorship programmes on <b>October 1st 2024</b>. Stay tuned for expert trading guidance!</p>
+                <p className='sub-text'>We're excited announce the launch our premium signals and mentorship programmes Your can now signup from <b>September 23rd 2024</b> and the program is expected to commence from <b>October 1st 2024</b></p>
                 <div className="timer">
                     <div className="timer-half">
                         <div className="time-property">

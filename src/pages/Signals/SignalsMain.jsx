@@ -3,7 +3,7 @@ import SignalsImage from '../../assets/signals.jpg'
 import Graphs from '../../assets/graphs.jpeg'
 import FreeImage from '../../assets/free_signal.jpg'
 import PaidImage from '../../assets/paid_signal.jpg'
-import { useRef, useTransition, useState } from "react"
+import { useRef, useTransition, useState, useEffect } from "react"
 import { useNavigate } from "react-router"
 import { navbarRef } from "../../components/NavBar.jsx"
 import CountdownMain from "../Countdown/CountdownMain.jsx"
@@ -16,7 +16,7 @@ const SignalsMain = () => {
 
     const navigate = useNavigate()
     const [isPending, startTransition] = useTransition()
-    const [isTime, setIsTime] = useState(new Date("October 1, 2024 00:00:00").getTime() - new Date().getTime() > 0? false : true)
+    const [isTime, setIsTime] = useState(new Date("September 23, 2024 00:00:00").getTime() - new Date().getTime() > 0? false : true)
 
     const signalsData = {
         service: "SIGNALS",
@@ -36,6 +36,10 @@ const SignalsMain = () => {
             }
         }
     }
+
+    useEffect(()=>{
+        setIsTime(new Date("September 23, 2024 00:00:00").getTime() - new Date().getTime() > 0? false : true)
+    })
 
     return (
         <div className="signals-main">
