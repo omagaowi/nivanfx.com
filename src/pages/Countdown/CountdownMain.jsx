@@ -41,28 +41,36 @@ const CountdownMain = () => {
     
         const secondremain = 59 - currentsecond;
         // console.log(secondremain);
-    
-    
-        if(secondremain < 10){
-            setSeconds(prev => `0${secondremain}`)
-        } else{
-            setSeconds(prev => `${secondremain}`)
+
+
+        if(currentTime > lunchTime){
+            setSeconds(prev => `00`)
+            setMinutes(prev => `00`)
+            setDays(prev => `00`)
+            setHours(prev => `00`)
+        }else{
+            if(secondremain < 10){
+                setSeconds(prev => `0${secondremain}`)
+            } else{
+                setSeconds(prev => `${secondremain}`)
+            }
+            if(minuteremain < 10){
+                setMinutes(prev => `0${minuteremain}`)
+            } else{
+                setMinutes(prev => `${minuteremain}`)
+            }
+            if(hourremain < 10){
+                setHours(prev => `0${hourremain}`)
+            } else{
+                setHours(prev => `${hourremain}`)
+            }
+            if(dayremain < 10){
+                setDays(prev => `0${dayremain}`)
+            } else{
+                setDays(prev => `${dayremain}`)
+            }
         }
-        if(minuteremain < 10){
-            setMinutes(prev => `0${minuteremain}`)
-        } else{
-            setMinutes(prev => `${minuteremain}`)
-        }
-        if(hourremain < 10){
-            setHours(prev => `0${hourremain}`)
-        } else{
-            setHours(prev => `${hourremain}`)
-        }
-        if(dayremain < 10){
-            setDays(prev => `0${dayremain}`)
-        } else{
-            setDays(prev => `${dayremain}`)
-        }
+
     }
     
     useEffect(() => {
