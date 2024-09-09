@@ -112,12 +112,12 @@ const Subscriptions = () => {
                                                 })
                                             }else{
                                                 startTransition(()=>{
-                                                    navigate(`/services/mentorships/#plans`)
+                                                    navigate(`/services/mentorships/`)
                                                  })
                                             }
                                         }else{
                                             startTransition(()=>{
-                                               navigate(`/services/mentorships/#plans`)
+                                               navigate(`/services/mentorships/`)
                                             })
                                         }
                                      }}>

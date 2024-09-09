@@ -35,9 +35,9 @@ const HeroSection = () => {
                     <div className="buttons no-opacity">
                         <button onClick={()=>{
                             startTransition(()=>{
-                                navigate('/services/mentorships/#plans')
+                                navigate('/services/mentorships/')
                             })
-                        }}><NavLink to = { '/services/mentorships/#plans' } onClick={ (e) => {
+                        }}><NavLink to = { '/services/mentorships/' } onClick={ (e) => {
                             e.preventDefault()
                         } }>Explore Plans</NavLink></button>
                         <button  onClick={()=>{
