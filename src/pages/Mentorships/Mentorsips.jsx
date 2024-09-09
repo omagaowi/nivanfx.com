@@ -21,32 +21,32 @@ const Mentorships = () => {
                 left: 0,
               });
             rendered = true
-            if(window.location.href.split('/')[4] == 'mentorships'){
-                if(window.location.href.split('/')[5]){
-                    if(window.location.hash == '#plans'){
-                        const elem = mentorshipMainRef.current.querySelector('#mentorship-plans-id')
-                        if (elem) {
-                            elem.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        } else {
+            // if(window.location.href.split('/')[4] == 'mentorships'){
+            //     if(window.location.href.split('/')[5]){
+            //         if(window.location.hash == '#plans'){
+            //             const elem = mentorshipMainRef.current.querySelector('#mentorship-plans-id')
+            //             if (elem) {
+            //                 elem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            //             } else {
  
-                        }
-                    }else{
-                        const elem = mentorshipMainRef.current.querySelector('.service-hero-main')
-                        if (elem) {
-                            elem.scrollIntoView({block: 'start' });
-                        } else {
+            //             }
+            //         }else{
+            //             const elem = mentorshipMainRef.current.querySelector('.service-hero-main')
+            //             if (elem) {
+            //                 elem.scrollIntoView({block: 'start' });
+            //             } else {
  
-                        }
-                    }
-                }else{
-                    const elem = mentorshipMainRef.current.querySelector('.service-hero-main')
-                    if (elem) {
-                        elem.scrollIntoView({block: 'start' });
-                    } else {
+            //             }
+            //         }
+            //     }else{
+            //         const elem = mentorshipMainRef.current.querySelector('.service-hero-main')
+            //         if (elem) {
+            //             elem.scrollIntoView({block: 'start' });
+            //         } else {
  
-                    }
-                }
-            }
+            //         }
+            //     }
+            // }
         }
     }, [])
     return (

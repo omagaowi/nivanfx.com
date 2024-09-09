@@ -29,9 +29,9 @@ const runMentorshipAnimations = () => {
       const isPlanDesktop = window.innerWidth > 1140;
 
       const allPlanCards =  Ref.current.querySelectorAll(".plans .plan");
-      console.log(allPlanCards)
+ 
       allPlanCards.forEach((plan, index) => {
-        console.log(plan, index)
+ 
         plansCardAnimation(plansRef, plan, index, isPlanDesktop);
       });
 }
@@ -102,7 +102,7 @@ const plansHeaderAnimation = (plansRef) => {
 
 
 const plansCardAnimation = (plansRef, card, index, isPlanDesktop) => {
-    console.log('planDes', isPlanDesktop)
+ 
     card.classList.add('remove')
      let planCardOptions = {
        root: null,
@@ -111,10 +111,10 @@ const plansCardAnimation = (plansRef, card, index, isPlanDesktop) => {
      };
 
      let planCardCallback = (entries) => {
-        console.log('callback')
+ 
        entries.forEach((entry) => {
          if (entry.isIntersecting) {
-            console.log('intesecting')
+ 
             if(index == 0){
                 setTimeout(() => {
                      card.classList.remove("no-opacity");
@@ -122,31 +122,31 @@ const plansCardAnimation = (plansRef, card, index, isPlanDesktop) => {
                 }, 0);
             }else if(index == 1){
                 if(isPlanDesktop){
-                     console.log('p1')
+ 
                      setTimeout(() => {
                        card.classList.remove("no-opacity");
                        card.classList.remove("remove");
                      }, 200);
                 }else{
-                   console.log("p1 m");
+ 
                     card.classList.remove("no-opacity");
                     card.classList.remove("remove");
                 }
             }else if(index == 2){
                  if (isPlanDesktop) {
-                   console.log("p2");
+ 
                    setTimeout(() => {
                      card.classList.remove("no-opacity");
                      card.classList.remove("remove");
                    }, 300);
                  } else {
-                   console.log("p2 m");
+ 
                    card.classList.remove("no-opacity");
                    card.classList.remove("remove");
                  }
             }
          }else{
-          console.log('not intersecting')
+ 
          }
        });
      };
