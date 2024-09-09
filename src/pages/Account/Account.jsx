@@ -7,6 +7,7 @@ import { navAnimationsDesktop } from "../../animations/navAnimations.js"
 import './account.css'
 import AccountMain from "./AccountMain.jsx"
 import MobileNav from "../../components/MobileNav.jsx"
+import { Helmet } from "react-helmet"
 
 const Account = () => {
     const [isPending, startTransition] = useTransition()

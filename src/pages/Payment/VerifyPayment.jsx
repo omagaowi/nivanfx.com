@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useAuthStore, root, apiKeys } from "../../utils/authStore";
+import { Helmet } from 'react-helmet';
 import './verify.css'
 
 
@@ -71,8 +72,7 @@ const VerifyPayment = () => {
     return (
         <>
              <Helmet>
-               <script async src="https://www.googletagmanager.com/gtag/js?id=G-4DX1JHEVR8"></script>
-                <script>
+             <script async src="https://www.googletagmanager.com/gtag/js?id=G-4DX1JHEVR8"></script>
                 <script>{`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
@@ -80,7 +80,6 @@ const VerifyPayment = () => {
 
                 gtag('config', 'G-4DX1JHEVR8');
                 `}</script>
-                </script>
                 <title>Verify your Payment | Nivan FX</title>
                 <meta name="google-site-verification" content="FGBWXtAisFxV7yCU1EgR7ozrntCKPJccWCr2GhnJq0M" />
                 <meta name="description" content="Congratulations on completing your payment, Please verify your transaction here!"/>
