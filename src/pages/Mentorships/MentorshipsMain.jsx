@@ -19,7 +19,7 @@ const MentorshipsMain = () => {
     return (
         <div className="mentorships-main">
             <ServicesHero data={ mentorshipData } image = { MentorshipImage }/>
-            <CountdownMain />
+            {/* <CountdownMain /> */}
             <div className="free-guide" ref={ freeGuideRef }>
                 <div className="free-guide-bg">
                     <img src={ FreeGudeImage } alt="" loading='lazy'/>
