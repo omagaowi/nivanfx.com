@@ -28,7 +28,7 @@ const runMentorshipAnimations = () => {
 
       const isPlanDesktop = window.innerWidth > 1140;
 
-      const allPlanCards = plansRef.current.querySelectorAll(".plans .plan");
+      const allPlanCards =  Ref.current.querySelectorAll(".plans .plan");
       console.log(allPlanCards)
       allPlanCards.forEach((plan, index) => {
         console.log(plan, index)
