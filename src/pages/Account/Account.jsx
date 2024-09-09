@@ -38,7 +38,7 @@ const Account = () => {
     return (
         <>
               <Helmet>
-                <script async src="https://www.googletagmanager.com/gtag/js?id=G-4DX1JHEVR8"></script>
+              <script async src="https://www.googletagmanager.com/gtag/js?id=G-4DX1JHEVR8"></script>
                 <script>{`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}

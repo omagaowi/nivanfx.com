@@ -30,7 +30,6 @@ const Signals = () => {
        <>
         <Helmet>
                 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4DX1JHEVR8"></script>
-                <script>
                 <script>{`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
@@ -38,7 +37,6 @@ const Signals = () => {
 
                 gtag('config', 'G-4DX1JHEVR8');
                 `}</script>
-                </script>
                 <title>Trading Signals | Nivan FX</title>
                 <meta name="google-site-verification" content="FGBWXtAisFxV7yCU1EgR7ozrntCKPJccWCr2GhnJq0M" />
                 <meta name="description" content="TMaximize your trading potential with NivanFX's free and paid forex signals. Get timely, accurate market insights and signals designed to boost your profitability, whether you're a beginner or an experienced trader."/>

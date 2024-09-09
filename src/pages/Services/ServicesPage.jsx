@@ -43,8 +43,7 @@ const ServicesPage = () => {
     return (
        <>
             <Helmet>
-                <script async src="https://www.googletagmanager.com/gtag/js?id=G-4DX1JHEVR8"></script>
-                <script>
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-4DX1JHEVR8"></script>
                 <script>{`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
@@ -52,7 +51,6 @@ const ServicesPage = () => {
 
                 gtag('config', 'G-4DX1JHEVR8');
                 `}</script>
-                </script>
                 <title>Nivan FX | Services</title>
                 <meta name="google-site-verification" content="FGBWXtAisFxV7yCU1EgR7ozrntCKPJccWCr2GhnJq0M" />
                 <meta name="description" content="Explore NivanFX's comprehensive forex services, including free and paid trading signals, and expert mentorships. Whether you're new to trading or looking to enhance your skills, we provide the tools and guidance to help you achieve consistent success."/>
