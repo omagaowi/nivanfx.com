@@ -29,7 +29,9 @@ const runMentorshipAnimations = () => {
       const isPlanDesktop = window.innerWidth > 1140;
 
       const allPlanCards = plansRef.current.querySelectorAll(".plans .plan");
+      console.log(allPlanCards)
       allPlanCards.forEach((plan, index) => {
+        console.log(plan, index)
         plansCardAnimation(plansRef, plan, index, isPlanDesktop);
       });
 }
@@ -109,6 +111,7 @@ const plansCardAnimation = (plansRef, card, index, isPlanDesktop) => {
      };
 
      let planCardCallback = (entries) => {
+        console.log('callback')
        entries.forEach((entry) => {
          if (entry.isIntersecting) {
             console.log('intesecting')
