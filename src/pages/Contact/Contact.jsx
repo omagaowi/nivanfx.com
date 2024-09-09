@@ -27,10 +27,19 @@ const Contact = () => {
     return (
         <>
             <Helmet>
+                 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4DX1JHEVR8"></script>
+                 <script>{`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'G-4DX1JHEVR8');
+                `}</script>
                 <title>Contact Us | Nivan FX</title>
                 <meta name="description" content="Have questions or need assistance? Reach out to Nivan FX, the leading platform dedicated to empowering and educating forex traders. Whether you're a beginner looking to learn the basics or an experienced trader seeking advanced strategies, our team is here to help. Contact us today for personalized support, expert advice, and answers to all your forex trading inquiries. Let Nivan FX guide you on your journey to becoming a successful trader." />
                 <meta name="google-site-verification" content="FGBWXtAisFxV7yCU1EgR7ozrntCKPJccWCr2GhnJq0M" />
                 <link rel="canonical" href="https://www.nivanfx.com/contact" />
+                <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"></link>
             </Helmet>
             <div className="container contact-container">
                 <NavBar white = { false }/>
