@@ -22,6 +22,7 @@ const serviceHeroAnimationDesktop = (serviceHeroRef) => {
 }
 
 const runMentorshipAnimations = () => {
+ 
     serviceHeroAnimationDesktop(serviceHeroRef)
     freeGuideAnimation(freeGuideRef)
     plansHeaderAnimation(plansRef)
@@ -31,7 +32,6 @@ const runMentorshipAnimations = () => {
       const allPlanCards =  plansRef.current.querySelectorAll(".plans .plan");
  
       allPlanCards.forEach((plan, index) => {
- 
         plansCardAnimation(plansRef, plan, index, isPlanDesktop);
       });
 }
@@ -111,7 +111,6 @@ const plansCardAnimation = (plansRef, card, index, isPlanDesktop) => {
      };
 
      let planCardCallback = (entries) => {
- 
        entries.forEach((entry) => {
          if (entry.isIntersecting) {
  
@@ -122,31 +121,28 @@ const plansCardAnimation = (plansRef, card, index, isPlanDesktop) => {
                 }, 0);
             }else if(index == 1){
                 if(isPlanDesktop){
- 
                      setTimeout(() => {
                        card.classList.remove("no-opacity");
                        card.classList.remove("remove");
                      }, 200);
                 }else{
- 
                     card.classList.remove("no-opacity");
                     card.classList.remove("remove");
                 }
             }else if(index == 2){
                  if (isPlanDesktop) {
- 
                    setTimeout(() => {
                      card.classList.remove("no-opacity");
                      card.classList.remove("remove");
                    }, 300);
                  } else {
- 
                    card.classList.remove("no-opacity");
                    card.classList.remove("remove");
                  }
             }
          }else{
- 
+           card.classList.add("no-opacity");
+           card.classList.add("remove");
          }
        });
      };

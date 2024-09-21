@@ -3,12 +3,13 @@ import './plans.css'
 import { useNavigate } from 'react-router'
 import { useEffect, useState, useTransition } from 'react'
 import { navbarRef } from '../NavBar.jsx'
-import { combine } from 'zustand/middleware'
+
 
 const Plans = () => {
     const navigate = useNavigate()
     const [isPending, startTransition] = useTransition()
-    const [isTime, setIsTime] = useState(new Date("September 23, 2024 00:00:00").getTime() - new Date().getTime() > 0? false : true)
+    // const [isTime, setIsTime] = useState(new Date("September 23, 2024 00:00:00").getTime() - new Date().getTime() > 0? false : true)
+    const [isTime, setIsTime] = useState(true)
     
 
     if(isPending){
@@ -72,7 +73,7 @@ const Plans = () => {
 
     const Plan = ({plan}) => {
         return (
-                <div className="plan no-opacity">
+                <div className="plan">
                     <div className="banner"></div>
                     <h2>{plan.plan}</h2>
                     <div className="price">

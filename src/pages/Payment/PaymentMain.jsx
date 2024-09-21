@@ -121,11 +121,11 @@ const PaymentMain = () => {
         }
     }
 
-    const ExistingSubscription = () => {
+    const ExistingSubscription = ({ sub }) => {
         return (
         <>
             <h2>Existing subscription detected</h2>
-            <p>To subscribe to this service cancel your current valid { data.mentorship.plan } subscription</p>
+            <p>To subscribe to this service cancel your current valid { sub.plan } subscription</p>
             <button onClick={()=>{
                 if(navbarRef.current){
                     navbarRef.current.querySelector('.loading').classList.add('show')
@@ -210,14 +210,14 @@ const PaymentMain = () => {
                                 <>
                                     {
                                       plan.type == 'mentorship'? (
-                                        data.mentorship && data.mentorship.status == 'renew'? (
-                                            <ExistingSubscription />
+                                        data.mentorship && data.mentorship.valid && data.mentorship.status == 'renew'? (
+                                            <ExistingSubscription sub = { data.mentorship }/>
                                         ):(
                                             <NonExisting />
                                         )
                                       ):(
-                                        data.signal && data.signal.status == 'renew'? (
-                                            <ExistingSubscription />
+                                        data.signals && data.signals.valid && data.signals.status == 'renew'? (
+                                            <ExistingSubscription sub = { data.signals }/>
                                         ):(
                                             <NonExisting />
                                         )
