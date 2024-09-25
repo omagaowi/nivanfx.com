@@ -243,7 +243,7 @@ const VerifyOTPMain = () => {
                 )
                }
                 <span className="resend">Didn't get an email <b onClick={ () => {
-                    sendOTP()
+                    sendOTP(false)
                 } }>Resend email ?</b></span>
             </div>
         </div>
