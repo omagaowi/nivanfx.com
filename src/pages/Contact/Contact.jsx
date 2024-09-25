@@ -11,6 +11,7 @@ import { Helmet } from 'react-helmet'
 
 const Contact = () => {
     let rendered = false
+    sessionStorage.removeItem('isOtp')
     useEffect(()=>{
         if(!rendered){
             navAnimationsDesktop()

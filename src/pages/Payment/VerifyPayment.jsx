@@ -41,6 +41,7 @@ const VerifyPayment = () => {
     }
 
     useEffect(() => {
+        sessionStorage.removeItem('isOtp')
         setLoading(prev => true)
         setRef(prev => window.location.href.split('=')[2]? window.location.href.split('=')[2] : '#invalid' )
         verify(window.location.href.split('=')[2]).then((data)=>{

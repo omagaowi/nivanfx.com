@@ -10,6 +10,7 @@ const TermsConditionsPage = () => {
     const [remove, setRemove] = useState(false)
     const navigate = useNavigate()
     useEffect(()=>{
+        sessionStorage.removeItem('isOtp')
         if(!rendered){
             navAnimationsDesktop()
             rendered = true

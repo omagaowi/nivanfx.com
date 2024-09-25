@@ -13,6 +13,7 @@ const Signals = () => {
     let rendered = false
     const signalsMainRef = useRef(false)
     useEffect(()=>{
+        sessionStorage.removeItem('isOtp')
         if(!rendered){
             rendered = true
             navAnimationsDesktop()

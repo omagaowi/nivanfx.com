@@ -10,6 +10,7 @@ import { Helmet } from "react-helmet"
 
 const Mentorships = () => {
     let rendered = false
+    sessionStorage.removeItem('isOtp')
     const mentorshipMainRef = useRef(false)
     useEffect(()=>{
         sessionStorage.removeItem('formData')

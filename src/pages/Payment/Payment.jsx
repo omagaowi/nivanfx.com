@@ -12,6 +12,7 @@ const PaymentPage = () => {
     let rendered = false
     useEffect(()=>{
         sessionStorage.removeItem('formData')
+        sessionStorage.removeItem('isOtp')
         if(!rendered){
             navAnimationsDesktop()
             rendered = true

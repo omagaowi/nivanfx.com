@@ -88,6 +88,7 @@ const PersonalDetailsPage = () => {
 
     useEffect(() => {
         let rendered = false
+        sessionStorage.removeItem('isOtp')
         if(telRef){
             telRef.current.value = selectedCountry.dial_code
         }
