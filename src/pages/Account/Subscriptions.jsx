@@ -1,6 +1,6 @@
 import { useEffect, useState, useTransition, } from 'react'
-import MentorshipImg from '../../assets/mentorship.png'
-import SignalsImg from '../../assets/signal.png'
+// import MentorshipImg from '../../assets/mentorship.png'
+// import SignalsImg from '../../assets/signal.png'
 import { root, apiKeys, useAuthStore, fetchSubscription } from '../../utils/authStore.js'
 import RoundLoader from '../../components/RoundLoader.jsx'
 import { navbarRef } from '../../components/NavBar.jsx'
@@ -122,7 +122,7 @@ const Subscriptions = () => {
                                         }
                                      }}>
                                         <div className="card-bg">
-                                            <img src={ MentorshipImg } alt="" />
+                                            <img src='/images/mentorship.webp' alt="" />
                                         </div>
                                         <div className="card-stuff">
                                             <div className="card-text">
@@ -182,7 +182,7 @@ const Subscriptions = () => {
                                         }
                                     } }>
                                         <div className="card-bg">
-                                            <img src={ SignalsImg } alt="" />
+                                            <img src='/images/signal.webp' alt="" />
                                         </div>
                                         <div className="card-stuff">
                                             <div className="card-text">

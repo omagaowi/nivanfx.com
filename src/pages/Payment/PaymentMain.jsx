@@ -204,7 +204,7 @@ const PaymentMain = () => {
                     <RoundLoader />
                 ):(
                     <div className="payment-confirm-window">
-                        <img src={ `/mini_logo.png` } alt="" />
+                        <img src={ `/images/mini_logo.webp` } alt="" />
                         {
                             data && plan? (
                                 <>

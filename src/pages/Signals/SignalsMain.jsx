@@ -1,8 +1,8 @@
 import ServicesHero from "../../components/ServicesHero.jsx"
-import SignalsImage from '../../assets/signals.jpg'
-import Graphs from '../../assets/graphs.jpeg'
-import FreeImage from '../../assets/free_signal.jpg'
-import PaidImage from '../../assets/paid_signal.jpg'
+// import SignalsImage from '../../assets/signals.jpg'
+// import Graphs from '../../assets/graphs.jpeg'
+// import FreeImage from '../../assets/free_signal.jpg'
+// import PaidImage from '../../assets/paid_signal.jpg'
 import { useRef, useTransition, useState, useEffect } from "react"
 import { useNavigate } from "react-router"
 import { navbarRef } from "../../components/NavBar.jsx"
@@ -43,14 +43,14 @@ const SignalsMain = () => {
 
     return (
         <div className="signals-main">
-            <ServicesHero data = { signalsData } image = { SignalsImage }/>
-            <CountdownMain />
+            <ServicesHero data = { signalsData } image = { '/images/signals.webp' }/>
+            {/* <CountdownMain /> */}
             <div className="free-section free" ref={ freeSignalRef }>
-                <img src={ Graphs } alt="" className="bg" loading="lazy"/>
+                <img src='/images/graphs.webp' alt="" className="bg" loading="lazy"/>
                 <div className="free-section-content">
                    <div className="part">
                         <div className="free-section-image no-opacity">
-                            <img src={ FreeImage } alt="" loading="lazy"/>
+                        <img src='/images/free_signal.webp' alt="" loading="lazy"/>
                         </div>
                    </div>
                    <div className="part">
@@ -65,11 +65,11 @@ const SignalsMain = () => {
                 </div>
             </div>
               <div className="free-section paid" ref={ paidSignalRef } id="premuim_signals">
-                <img src={ Graphs } alt="" className="bg" loading="lazy"/>
+                <img src='/images/graphs.webp' alt="" className="bg" loading="lazy"/>
                 <div className="free-section-content">
                    <div className="part">
                         <div className="free-section-image no-opacity">
-                            <img src={ PaidImage } alt="" loading="lazy"/>
+                            <img src='/images/paid_signal.webp' alt="" loading="lazy"/>
                         </div>
                    </div>
                    <div className="part">

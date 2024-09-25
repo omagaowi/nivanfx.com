@@ -56,11 +56,11 @@
 }
 
 .free-section-content:nth-child(1) .free-section-image{
-    background-image: url('/free_signal_bg.jpg');
+    background-image: url('/images/free_signal_bg.jpg');
 }
 
 .free-section-content:nth-child(2) .free-section-image{
-    background-image: url('/paid_signal_bg.jpg');
+    background-image: url('/images/paid_signal_bg.jpg');
 }
 
 .free-section-content .free-section-image img{

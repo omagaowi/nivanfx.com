@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import ContactImage from '../../assets/bg.jpg' 
+// import ContactImage from '../../assets/bg.jpg' 
 import { PiEnvelopeThin, PiPhoneThin  } from "react-icons/pi";
 import { copyToClipboard } from '../../App.jsx';
 
@@ -10,7 +10,7 @@ const ContactMain = () => {
     contactRef = useRef(contactRef)
     return (
         <div className="contact-main" ref={ contactRef }>
-            <img src={ ContactImage } alt="" className='bg' loading='lazy'/>
+            <img src='/images/bg.webp' alt="" className='bg' loading='lazy'/>
             <div className="contact-content remove">
                 <div className="part">
                     <div className="main-text">
@@ -39,7 +39,7 @@ const ContactMain = () => {
                     <div className="item remove">
                         <PiEnvelopeThin />
                         <h3 className='no-opacity'>Email</h3>
-                        <p className='remove'><a href="mailto:NivanFxofficial@gmail.com?subject=''=.">NivanFxofficial@gmail.com</a></p>
+                        <p className='remove'><a href="mailto:nivanFxofficial@gmail.com?subject=''=.">nivanFxofficial@gmail.com</a></p>
                     </div>
                     <div className="item remove">
                         <PiPhoneThin />

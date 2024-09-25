@@ -1,8 +1,8 @@
-import FreeGudeImage from '../../assets/guide.jpg'
+// import FreeGudeImage from '../../assets/guide.jpg'
 import Plans from '../../components/Plans/Plans.jsx'
 import ServicesHero from '../../components/ServicesHero.jsx'
-import ServicesImg from '../../assets/services.jpg'
-import MentorshipImage from '../../assets/mentorship.png'
+// import ServicesImg from '../../assets/services.jpg'
+// import MentorshipImage from '../../assets/mentorship.png'
 import { useRef } from 'react'
 import CountdownMain from '../Countdown/CountdownMain.jsx'
 
@@ -18,11 +18,11 @@ const MentorshipsMain = () => {
     }
     return (
         <div className="mentorships-main">
-            <ServicesHero data={ mentorshipData } image = { MentorshipImage }/>
-            <CountdownMain />
+            <ServicesHero data={ mentorshipData } image = { '/images/mentorship.webp' }/>
+            {/* <CountdownMain /> */}
             <div className="free-guide" ref={ freeGuideRef }>
                 <div className="free-guide-bg">
-                    <img src={ FreeGudeImage } alt="" loading='lazy'/>
+                    <img src='/images/guide.webp' alt="" loading='lazy'/>
                 </div>
                 <div className="free-guide-main">
                     <h1 className='no-opacity'>Nivan Fx Free Starters Guide!</h1>
@@ -34,7 +34,7 @@ const MentorshipsMain = () => {
             </div>
             <div className="mentorship-plans" ref={ plansRef }>
                 <div className="mentorship-plans-bg">
-                    <img src={ ServicesImg } alt="" loading='lazy'/>
+                    <img src='/images/services.webp' alt="" loading='lazy'/>
                 </div>
                 <div className="mentorship-plans-content" id='mentorship-plans-id'>
                             <div className="heading">

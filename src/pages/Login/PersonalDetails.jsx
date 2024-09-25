@@ -206,7 +206,7 @@ const PersonalDetailsPage = () => {
                     <div className="error-msg">
                         <p>An Error Occured!!</p>
                     </div>
-                    <img src="/mini_logo.png" alt="" className="logo" />
+                    <img src="/images/mini_logo.webp" alt="" className="logo" />
                     <h2>Almost There !!</h2>
                     <p className="plan-text">Fill in the last of the remaining fields</p>
                     <form action="" onSubmit={ (e) => {

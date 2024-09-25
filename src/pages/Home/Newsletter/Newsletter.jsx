@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './newsletter.css'
-import Loader from '../../../assets/loader.gif';
+
 
 const Newsletter = () => {
 
@@ -70,7 +70,7 @@ const Newsletter = () => {
                     joinNewsletter()
                 }}>
                     <p>Suscribe</p>
-                    <img src={ Loader } alt="" />
+                    <img src='/loader.gif' alt="" />
                 </button>
                 <div className={`newsletter-msg ${status? status.status : false}`}>
                     <h3>{ status? status.msg: '' }</h3>

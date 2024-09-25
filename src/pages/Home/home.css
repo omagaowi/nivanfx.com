@@ -28,7 +28,7 @@
 .full-body .body-part:nth-child(2){
     pointer-events: all;
     background-color: #fff;
-    background-image: url('../../assets/firstbg.jpg');
+    background-image: url('/images/firstbg.webp');
     background-size: cover;
 }
 
@@ -46,14 +46,14 @@
 .full-body .body-part:nth-child(3){
     pointer-events: all;
     background: #fff;
-    background-image: url('../../assets/services.jpg');
+    background-image: url('/images/services.webp');
     background-size: cover;
 }
 
 .full-body .body-part:nth-child(4){
     pointer-events: all;
     background-color: #fff;
-    background-image: url('../../assets/community2.jpg');
+    background-image: url('/images/community2.webp');
     background-size: cover;
 }
 
@@ -62,7 +62,7 @@
     full-body .body-part:nth-child(2){
         pointer-events: all;
         background-color: #fff;
-        background-image: url('../../assets/firstbg_mini.png');
+        background-image: url('/images/firstbg_mini.webp');
         background-size: cover;
     }
     
@@ -70,7 +70,7 @@
     .full-body .body-part:nth-child(3){
         pointer-events: all;
         background-color: #fff;
-        background-image: url('../../assets/services_mini.png');
+        background-image: url('/images/services_mini.webp');
         background-size: cover;
     }
 }

@@ -4,8 +4,8 @@ import { FaRegFlag } from "react-icons/fa";
 import { MdOutlineAttachMoney } from "react-icons/md";
 import { useState, useRef, useTransition } from 'react';
 
-import MentorshipsImg from '../../assets/mentorship.png'
-import SignalsImg from '../../assets/signal.png'
+// import MentorshipsImg from '../../assets/mentorship.png'
+// import SignalsImg from '../../assets/signal.png'
 import { navbarRef } from '../../components/NavBar.jsx';
 import { useNavigate } from 'react-router';
 import { NavLink } from 'react-router-dom';
@@ -23,14 +23,14 @@ const cards = [
         heading: 'Mentorships',
         text: 'Nivan FX provides specialized courses and programs for aspiring traders, offering essential skills to navigate the forex market confidently.',
         icon: <FaHandshakeAngle />,
-        image: MentorshipsImg,
+        image: '/images/mentorship.webp',
         link: '/services/mentorships'
     },
     {
         heading: 'Signals',
         text: 'At Nivan FX, access our curated signals for a market edge. Tailored for all levels, elevate your trading strategies effortlessly.',
         icon: <FaRegFlag />,
-        image: SignalsImg,
+        image: '/images/signal.webp',
         link: '/services/signals'
     },
     // {

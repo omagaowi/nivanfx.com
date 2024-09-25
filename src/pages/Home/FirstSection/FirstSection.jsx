@@ -1,5 +1,5 @@
 import './firstSection.css'
-import SectionImage from '../../../assets/section1.png'
+// import SectionImage from '../../../assets/section1.png'
 import { useRef } from 'react'
 
 let firstSectionRef
@@ -10,7 +10,7 @@ const FirstSection = () => {
         <div className="first-section" ref={ firstSectionRef }>
             <div className="part">
                 <div className="image no-opacity">
-                    <img src={ SectionImage } alt="" loading='lazy'/>
+                    <img src="/images/section1.webp" alt="" loading='lazy'/>
                 </div>
             </div>
             <div className="part">

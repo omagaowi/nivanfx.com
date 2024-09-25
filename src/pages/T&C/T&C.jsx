@@ -26,7 +26,7 @@ const TermsConditionsPage = () => {
                     <div className={`reminder ${remove? 'remove' : ''}`}>
                         <p>Please read and accept our terms of service to continue!</p>
                     </div>
-                    <img src="/mini_logo.png" alt="" />
+                    <img src="/images/mini_logo.webp" alt="" />
                     <h1>Terms of Service</h1>
                     <div className="section">
                         <h3>Privacy Policy</h3>

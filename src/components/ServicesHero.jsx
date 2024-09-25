@@ -16,7 +16,7 @@ const ServicesHero = ({ data, image }) => {
                     </div>
                 </div>
                 <div className="part">
-                    <div className="service-hero-image no-opacity">
+                    <div className={`service-hero-image no-opacity ${ data.service == 'MENTORSHIPS' ? 'mentorship' : 'signal' }`}>
                         <img src={ image  } alt="" loading="lazy"/>
                     </div>
                 </div>

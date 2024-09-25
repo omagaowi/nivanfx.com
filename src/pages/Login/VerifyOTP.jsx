@@ -22,7 +22,6 @@ const VerifyOTPMain = () => {
         updateToken: state.updateToken
     }))
 
- 
 
     const [otp, setOTP] = useState(false)
     const [userInput, setUserInput] = useState()
@@ -74,13 +73,13 @@ const VerifyOTPMain = () => {
     }
 
 
-    const sendOTP = () => {
+    const sendOTP = (value) => {
         if(navbarRef){
             if(navbarRef.current){
                 navbarRef.current.querySelector('.loading').classList.add('show')
             }
         }
-        const OTP = Number(Date.now().toString().split('').splice(5, 6).join(''))
+        const OTP = value? value : Number(Date.now().toString().split('').splice(5, 6).join(''))
         const url = "https://api.brevo.com/v3/smtp/email";
         // Define the API key and email data
         formRef.current.classList.add('load')
@@ -99,39 +98,54 @@ const VerifyOTPMain = () => {
         htmlContent: JSON.parse(sessionStorage.getItem('formData')).login ? OTPTemplateLoggedin(OTP, JSON.parse(sessionStorage.getItem('formData')).login, new Date().getFullYear()) : OTPTemplateLoggedOut(OTP, new Date().getFullYear()),
         textContent: `Your 6 digit verification code to activate your nivan fx account is ${OTP}`
         };
-        fetch(url, {
-            method: "POST", 
-            headers: {
-              accept: "application/json",
-              "api-key": apiKeys.email,
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(emailData),
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              setOTP(prev => OTP)
-              formRef.current.classList.remove('load')
-              if(navbarRef){
-                if(navbarRef.current){
-                    navbarRef.current.querySelector('.loading').classList.remove('show')
-                }
-               }
-            })
-            .catch((error) => {
-                formRef.current.classList.remove('load')
-                if(navbarRef){
+        if(!value){
+            console.log(false, OTP)
+            fetch(url, {
+                method: "POST", 
+                headers: {
+                  accept: "application/json",
+                  "api-key": apiKeys.email,
+                  "content-type": "application/json",
+                },
+                body: JSON.stringify(emailData),
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  setOTP(prev => OTP)
+                  sessionStorage.setItem('isOtp', JSON.stringify({value: OTP}))
+                  formRef.current.classList.remove('load')
+                  if(navbarRef){
                     if(navbarRef.current){
                         navbarRef.current.querySelector('.loading').classList.remove('show')
                     }
-                }
-
-            });
+                   }
+                })
+                .catch((error) => {
+                    formRef.current.classList.remove('load')
+                    if(navbarRef){
+                        if(navbarRef.current){
+                            navbarRef.current.querySelector('.loading').classList.remove('show')
+                        }
+                    }
+    
+                });
+        }else{
+            console.log(true, OTP)
+            setOTP(prev => OTP)
+             sessionStorage.setItem('isOtp', JSON.stringify({value: OTP}))
+            formRef.current.classList.remove('load')
+            if(navbarRef){
+              if(navbarRef.current){
+                 navbarRef.current.querySelector('.loading').classList.remove('show')
+              }
+            }
+        }
     }
 
 
     useEffect(() => {
-        sendOTP()
+        const otpSet = JSON.parse(sessionStorage.getItem('isOtp'))
+        sendOTP(otpSet? otpSet.value : false)
         if(!JSON.parse(sessionStorage.getItem('formData'))){
             startTransition(()=>{
                 navigate('/account/login')

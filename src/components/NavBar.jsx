@@ -1,6 +1,6 @@
 import '../styles/navbar.css'
-import Logo from '../assets/logo2.png'
-import Logo2 from '../assets/logo.png'
+// import Logo from '../assets/logo2.png'
+// import Logo2 from '../assets/logo.png'
 import { useRef, useState, useTransition, useEffect } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { toggleMobileNav } from './MobileNav'
@@ -43,13 +43,13 @@ const NavBar = ({white}) => {
                         }}>
                 {
                     white? (
-                        <img src={ '/logo.png' } alt="" loading='lazy' onLoad={()=>{
+                        <img src={ '/images/logo.webp' } alt="" loading='lazy' onLoad={()=>{
                             if(logoRef){
                                 logoRef.current.classList.remove('logo-loading')
                             }
                         }}/>
                     ):(
-                        <img  src={ '/logo2.png' } alt="" loading='lazy' onLoad={()=>{
+                        <img  src={ '/images/logo2.webp' } alt="" loading='lazy' onLoad={()=>{
                             if(logoRef){
                                 logoRef.current.classList.remove('logo-loading')
                             }

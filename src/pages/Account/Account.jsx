@@ -27,8 +27,9 @@ const Account = () => {
         }
     }
 
+    let rendered = false
+
     useEffect(()=>{
-        let rendered
         sessionStorage.removeItem('formData')
         if(!rendered){
             navAnimationsDesktop()

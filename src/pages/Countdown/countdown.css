@@ -21,7 +21,7 @@
     background-image: 
     linear-gradient(180deg, rgba(0, 0, 0, 0.8) 10%, rgba(0, 0, 0, 0.9)),
     linear-gradient(180deg, transparent 10%, rgba(139, 0, 255, 0.8)),
-    url('/countdown.webp');
+    url('/images/countdown.webp');
     display: flex;
     flex-direction: column;
     align-items: center;

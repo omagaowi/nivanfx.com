@@ -2,7 +2,7 @@
     width: 100vw;
     height: 450px;
     background-color: #000;
-    background-image: url('../../assets/portfolio2.png');
+    /* background-image: url('../../assets/portfolio2.png'); */
     background-size: cover;
 }
 

@@ -21,14 +21,14 @@ const HomeMain = () => {
                 if(navbarRef){
                     if(navbarRef.current){
                         navbarRef.current.classList.add("white");
-                        navbarRef.current.querySelector(".logo img").src = '/logo.png'
+                        navbarRef.current.querySelector(".logo img").src = '/images/logo.webp'
                     }
                 }
             }else{
             if(navbarRef){
                 if(navbarRef.current){
                      navbarRef.current.classList.remove("white");
-                     navbarRef.current.querySelector(".logo img").src = '/logo2.png'
+                     navbarRef.current.querySelector(".logo img").src = '/images/logo2.webp'
                 }
             }
             }
