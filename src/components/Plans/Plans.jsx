@@ -28,7 +28,7 @@ const Plans = () => {
 
     const plansArray = [
         {
-            plan: "Intermediate",
+            plan: "Tier 1",
             price_dollar: 25,
             price_naira: "50, 000",
             price_og : 50,
@@ -42,13 +42,13 @@ const Plans = () => {
             link: 'https://nivan-api.onrender.com/redirect/payment/intermediate'
         },
         {
-            plan: "Profitable Trader",
+            plan: "Tier 2",
             price_dollar: 50,
             price_naira: "100, 000",
             price_og : 100,
             code: 'PLN_w9fggz2ezfe44u9',
             features: [
-                "Access to all intermediate features plus:",
+                "Access to all Tier 1 plus:",
                 "Mastering fundamental analysis",
                 "Access to tips to pass prop firm challenges",
                 "Introduction to building psychology (weekly)"  
@@ -56,13 +56,13 @@ const Plans = () => {
             link: 'https://nivan-api.onrender.com/redirect/payment/profitable'
         },
         {
-            plan: "Exclusive",
+            plan: "Tier 3",
             price_dollar: 100,
             price_naira: "200, 000",
             price_og : 200,
             code: 'PLN_omp4zkk597lbobe',
             features: [
-                "Access to all profitable features plus:",
+                "Access to all Tier 2 plus:",
                 "One on one with Nivan Fx.",
                 "Q & A Sessions",
                 "Pro level psychological build up (mind of a profitable trader).",

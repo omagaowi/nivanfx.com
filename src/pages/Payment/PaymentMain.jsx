@@ -42,17 +42,17 @@ const PaymentMain = () => {
     const plans = [
         {
           planCode: "PLN_cu7k3ly30mwip4g",
-          plan: "Intermediate Mentorship",
+          plan: "Tier 1",
           type: "mentorship",
         },
         {
           planCode: "PLN_w9fggz2ezfe44u9",
-          plan: "Profitable Trader",
+          plan: "Tier 2",
           type: "mentorship",
         },
         {
           planCode: "PLN_omp4zkk597lbobe",
-          plan: "Exclusive Mentorship",
+          plan: "Tier 3",
           type: "mentorship",
         },
         {
